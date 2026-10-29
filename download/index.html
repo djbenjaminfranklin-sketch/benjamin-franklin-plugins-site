@@ -123,9 +123,6 @@ if (fr) {
   try { localStorage.setItem("bf-lang", "fr"); } catch (e) {}
 }
 
-// l'abonnement n'est plus exigé avant : la page d'accueil ne doit pas reverrouiller
-try { localStorage.setItem("bf-unlocked", "1"); } catch (e) {}
-
 const ua = navigator.userAgent;
 const iPad = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
 const phone = iPad || /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
