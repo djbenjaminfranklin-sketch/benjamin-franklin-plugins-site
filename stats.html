@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Statistiques des téléchargements</title>
+<title>Download stats</title>
 <link rel="stylesheet" href="style.css">
 <style>
   .stats{max-width:900px;margin:0 auto;padding:40px 16px 80px}
@@ -26,34 +26,59 @@
 </head>
 <body>
 <main class="stats">
-  <h1>Téléchargements</h1>
-  <p class="state" id="state">Chargement…</p>
+  <div style="display:flex;justify-content:flex-end"><div class="langsw"><button class="lang on" data-lang="en">EN</button><button class="lang" data-lang="fr">FR</button></div></div>
+  <h1 id="h1"></h1>
+  <p class="state" id="state"></p>
   <div class="cards" id="cards"></div>
   <div class="wrap">
     <table>
-      <thead><tr><th>Version</th><th>Fichier</th><th class="r">Taille</th><th class="r">Téléchargements</th></tr></thead>
+      <thead><tr><th id="th1"></th><th id="th2"></th><th class="r" id="th3"></th><th class="r" id="th4"></th></tr></thead>
       <tbody id="rows"></tbody>
     </table>
   </div>
-  <p class="state">Note : les deux boutons Mac (Apple Silicon et Intel) mènent au même fichier .dmg, ils sont donc comptés ensemble.</p>
+  <p class="state" id="note"></p>
 </main>
 <script src="counts.js"></script>
 <script>
-const fmt = n => n.toLocaleString("fr-FR");
-loadCounts().then(({ data, live }) => {
+const T = {
+  en: { h1: "Downloads", loading: "Loading…", fail: "Can't reach GitHub right now (60 requests per hour limit). Try again in a few minutes.", live: "Up to date: ", cached: "GitHub isn't answering, last known value: ", total: "in total", th: ["Version", "File", "Size", "Downloads"], mb: "MB", note: "Note: both Mac buttons (Apple Silicon and Intel) point to the same .dmg file, so they are counted together." },
+  fr: { h1: "Téléchargements", loading: "Chargement…", fail: "Impossible de joindre GitHub pour l'instant (limite de 60 requêtes par heure). Réessaie dans quelques minutes.", live: "À jour : ", cached: "GitHub ne répond pas, dernière valeur connue : ", total: "au total", th: ["Version", "Fichier", "Taille", "Téléchargements"], mb: "Mo", note: "Note : les deux boutons Mac (Apple Silicon et Intel) mènent au même fichier .dmg, ils sont donc comptés ensemble." }
+};
+let lang = "en";
+try { if (localStorage.getItem("bf-lang") === "fr") lang = "fr"; } catch (e) {}
+let result = null;
+
+function render() {
+  const t = T[lang], loc = lang === "fr" ? "fr-FR" : "en-US";
+  const fmt = n => n.toLocaleString(loc);
+  document.documentElement.lang = lang;
+  document.querySelectorAll(".lang").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+  document.getElementById("h1").textContent = t.h1;
+  t.th.forEach((x, i) => document.getElementById("th" + (i + 1)).textContent = x);
+  document.getElementById("note").textContent = t.note;
   const state = document.getElementById("state");
-  if (!data) { state.textContent = "Impossible de joindre GitHub pour l'instant (limite de 60 requêtes par heure). Réessaie dans quelques minutes."; return; }
-  state.textContent = (live ? "À jour : " : "GitHub ne répond pas, dernière valeur connue : ") + new Date(data.at).toLocaleString("fr-FR");
-  let html = `<div class="card total"><div class="n">${fmt(data.total)}</div><small>au total</small></div>`;
+  if (!result) { state.textContent = t.loading; return; }
+  const { data, live } = result;
+  if (!data) { state.textContent = t.fail; return; }
+  state.textContent = (live ? t.live : t.cached) + new Date(data.at).toLocaleString(loc);
+  let html = `<div class="card total"><div class="n">${fmt(data.total)}</div><small>${t.total}</small></div>`;
   for (const [name, p] of Object.entries(data.plugins)) {
     html += `<div class="card ${name}"><div class="n">${fmt(p.total)}</div>${name.replace(/-/g, " ")}<br><small>Mac ${fmt(p.mac)} · Windows ${fmt(p.win)}</small></div>`;
   }
   document.getElementById("cards").innerHTML = html;
   document.getElementById("rows").innerHTML = data.files
-    .sort((a, b) => b.count - a.count)
-    .map(f => `<tr><td>${f.release}</td><td>${f.name}</td><td class="r">${(f.size / 1e6).toFixed(1).replace(".", ",")} Mo</td><td class="r"><b>${fmt(f.count)}</b></td></tr>`)
+    .slice().sort((a, b) => b.count - a.count)
+    .map(f => `<tr><td>${f.release}</td><td>${f.name}</td><td class="r">${(f.size / 1e6).toLocaleString(loc, { maximumFractionDigits: 1 })} ${t.mb}</td><td class="r"><b>${fmt(f.count)}</b></td></tr>`)
     .join("");
-});
+}
+
+document.querySelectorAll(".lang").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem("bf-lang", lang); } catch (e) {}
+  render();
+}));
+render();
+loadCounts().then(r => { result = r; render(); });
 </script>
 </body>
 </html>
