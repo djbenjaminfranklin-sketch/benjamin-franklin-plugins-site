@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RATTLE! by Benjamin Franklin: the AI drum machine</title>
+<meta name="description" content="Capture the groove of your favorite track. RATTLE! finds every drum hit in any song, names it, and plays it with your own sounds. Coming soon, €14.90.">
+<meta property="og:title" content="RATTLE! – the AI drum machine">
+<meta property="og:description" content="Capture the groove of your favorite track. Coming soon, €14.90. Join the waitlist.">
+<meta property="og:image" content="https://benjaminfranklinmusic.com/rattle/poster.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0c0a12">
+<link rel="icon" href="/rattle/skull.webp">
+<style>
+@font-face { font-family: "Marker"; src: url("/fonts/PermanentMarker-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #0c0a12; --card: #1a1722; --txt: #eeeaf2; --mute: #a49db0; --pink: #ff2d74; --violet: #c77dff; --green: #8aff2b; --cyan: #2be4ff; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(circle at 50% 0, #2a1236, var(--bg) 60%); background-color: var(--bg); color: var(--txt); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.5; min-height: 100vh; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 22px 16px 48px; }
+.top { display: flex; justify-content: space-between; align-items: center; margin: 0 0 14px; }
+.brand { font-family: "Marker", cursive; font-size: 20px; color: var(--pink); text-decoration: none; }
+.lang { background: none; border: 2px solid #3a3546; color: var(--txt); border-radius: 20px; padding: 4px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+.logo { display: block; width: 100%; max-width: 520px; margin: 6px auto 4px; }
+h1 { font-size: 30px; line-height: 1.15; margin: 0 0 8px; text-align: center; }
+h1 em { font-style: normal; color: var(--green); }
+.lead { text-align: center; color: var(--mute); margin: 0 0 20px; }
+.price { text-align: center; font-weight: 900; letter-spacing: .06em; color: var(--green); margin: 0 0 18px; }
+video { display: block; width: 100%; max-width: 340px; margin: 0 auto 22px; border-radius: 20px; box-shadow: 0 20px 60px #000a, 0 0 40px #ff2d7433; background: #000; }
+.card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin: 0 0 18px; }
+.card h2 { font-family: "Marker", cursive; font-weight: 400; font-size: 26px; margin: 0 0 6px; text-align: center; color: #fff; }
+.card p { color: var(--mute); text-align: center; margin: 0 0 14px; }
+form { display: flex; flex-direction: column; gap: 10px; max-width: 420px; margin: 0 auto; }
+input[type=email] { width: 100%; padding: 16px 18px; border-radius: 40px; border: 2px solid #3a3546; background: #0c0a12; color: var(--txt); font-size: 17px; }
+input[type=email]:focus { outline: none; border-color: var(--pink); }
+button.go { background: var(--pink); color: #fff; border: 0; font-weight: 800; font-size: 17px; padding: 16px 20px; border-radius: 40px; cursor: pointer; }
+button.go:disabled { opacity: .6; }
+.hp { position: absolute; left: -9999px; }
+.msg { text-align: center; font-weight: 700; margin: 10px 0 0; min-height: 1.5em; }
+.msg.ok { color: var(--green); }
+.msg.err { color: var(--pink); }
+.small { font-size: 12px; color: var(--mute); text-align: center; margin: 10px 0 0; }
+.feat { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.feat li { background: #0c0a12; border-radius: 14px; padding: 12px 14px; color: var(--mute); }
+.feat b { color: var(--txt); display: block; }
+.feat li:nth-child(1) b { color: var(--pink); } .feat li:nth-child(2) b { color: var(--cyan); }
+.feat li:nth-child(3) b { color: var(--green); } .feat li:nth-child(4) b { color: var(--violet); }
+.skull { display: block; width: 160px; margin: 8px auto 0; }
+.foot { text-align: center; font-size: 13px; color: var(--mute); }
+.foot a { color: var(--violet); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="/">Benjamin Franklin</a>
+    <button class="lang" id="lang" type="button">FR</button>
+  </div>
+
+  <img class="logo" src="/rattle/logo.webp" alt="RATTLE!">
+  <h1 data-t="h1">Capture the groove of <em>your favorite track</em></h1>
+  <p class="lead" data-t="lead">Drop in any song. RATTLE! finds every drum hit, names it, and plays it back with your own sounds, in time with your DAW.</p>
+  <p class="price" data-t="price">COMING SOON · €14.90</p>
+
+  <video src="/rattle/teaser.mp4" poster="/rattle/poster.jpg" controls playsinline preload="metadata"></video>
+
+  <div class="card" id="join">
+    <h2 data-t="h2">Join the waitlist</h2>
+    <p data-t="sub">Be the first to know when it's out, with an early-bird discount.</p>
+    <form id="f" novalidate>
+      <input type="email" name="email" id="email" required autocomplete="email" placeholder="your@email.com" data-tp="ph">
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="go" type="submit" id="go" data-t="btn">Reserve my spot</button>
+    </form>
+    <p class="msg" id="msg" role="status"></p>
+    <p class="small" data-t="legal">We'll only email you about RATTLE!. Unsubscribe anytime.</p>
+  </div>
+
+  <div class="card">
+    <ul class="feat">
+      <li><b data-t="f1">Every hit, found and named</b><span data-t="f1d">Kick, snare, clap, hats, toms, bongos, congas, shakers… detected by our own AI.</span></li>
+      <li><b data-t="f2">Your sounds, not a preset bank</b><span data-t="f2d">Drop your own samples on each pad. The groove stays, the sound is yours.</span></li>
+      <li><b data-t="f3">In tune with your track</b><span data-t="f3d">It reads the note of each sound and can tune it to your key, one pad or all at once.</span></li>
+      <li><b data-t="f4">It plays, or drag the MIDI</b><span data-t="f4d">Synced to your DAW. Or drag the pattern out as MIDI. Mac & Windows, VST3 / AU.</span></li>
+    </ul>
+    <img class="skull" src="/rattle/skull.webp" alt="">
+  </div>
+
+  <p class="foot"><span data-t="more">Meanwhile, grab my free plugins:</span> <a href="/">benjaminfranklinmusic.com</a></p>
+</div>
+<script>
+const T = { fr: {
+  h1: 'Capture le groove de <em>ton morceau préféré</em>',
+  lead: 'Glisse n\'importe quel morceau. RATTLE! trouve chaque coup de batterie, le nomme et le rejoue avec tes propres sons, calé sur ton DAW.',
+  price: 'BIENTÔT · 14,90 €', h2: 'Réserve ta place',
+  sub: 'Sois le premier prévenu à la sortie, avec une remise de lancement.',
+  btn: 'Je réserve', ph: 'ton@email.com',
+  legal: 'On t\'écrit seulement pour RATTLE!. Désinscription en un clic.',
+  f1: 'Chaque coup, trouvé et nommé', f1d: 'Kick, caisse claire, clap, charleys, toms, bongos, congas, shakers… repérés par notre propre IA.',
+  f2: 'Tes sons, pas une banque toute faite', f2d: 'Pose tes propres samples sur chaque pad. Le groove reste, le son est à toi.',
+  f3: 'Accordé sur ton morceau', f3d: 'Il lit la note de chaque son et peut l\'accorder sur ta tonalité, un pad ou tous d\'un coup.',
+  f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac et Windows, VST3 / AU.',
+  more: 'En attendant, prends mes plugins gratuits :',
+  ok: 'C\'est réservé ! On te prévient à la sortie.', bad: 'Cet e-mail ne semble pas valide.', fail: 'Petit souci, réessaie dans un instant.'
+}, en: { ok: 'You\'re in! We\'ll let you know when it\'s out.', bad: 'That email doesn\'t look right.', fail: 'Something went wrong, try again in a moment.' } };
+const EN = {};
+document.querySelectorAll('[data-t]').forEach(e => EN[e.dataset.t] = e.innerHTML);
+EN.ph = document.getElementById('email').placeholder;
+let lang = 'en';
+try { const q = new URLSearchParams(location.search).get('lang'); lang = q || localStorage.getItem('bf-lang') || ((navigator.language || '').startsWith('fr') ? 'fr' : 'en'); } catch (e) {}
+function apply(l) {
+  lang = l === 'fr' ? 'fr' : 'en';
+  const d = lang === 'fr' ? T.fr : EN;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(e => { if (d[e.dataset.t]) e.innerHTML = d[e.dataset.t]; });
+  document.getElementById('email').placeholder = d.ph;
+  document.getElementById('lang').textContent = lang === 'fr' ? 'EN' : 'FR';
+  try { localStorage.setItem('bf-lang', lang); } catch (e) {}
+}
+apply(lang);
+document.getElementById('lang').onclick = () => apply(lang === 'fr' ? 'en' : 'fr');
+const say = k => (lang === 'fr' ? T.fr : T.en)[k];
+document.getElementById('f').onsubmit = async ev => {
+  ev.preventDefault();
+  const f = ev.target, msg = document.getElementById('msg'), go = document.getElementById('go');
+  const email = f.email.value.trim();
+  msg.className = 'msg';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = say('bad'); msg.classList.add('err'); return; }
+  go.disabled = true;
+  try {
+    const r = await fetch('/api/waitlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, website: f.website.value, lang }) });
+    if (!r.ok) throw 0;
+    msg.textContent = say('ok'); msg.classList.add('ok'); f.reset();
+  } catch (e) { msg.textContent = say('fail'); msg.classList.add('err'); go.disabled = false; }
+};
+</script>
+</body>
+</html>
