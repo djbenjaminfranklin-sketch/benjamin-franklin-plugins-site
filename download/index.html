@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download: 3 free plugins by Benjamin Franklin</title>
+<meta name="description" content="Your free plugins by Benjamin Franklin: Plug de fou, SlowMo and Boom. Mac and Windows.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0a12">
+<link rel="icon" href="/img/boombtn.webp">
+<style>
+@font-face { font-family: "Marker"; src: url("/fonts/PermanentMarker-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #0c0a12; --card: #1a1722; --txt: #eeeaf2; --mute: #a49db0; --pink: #ff2d74; --violet: #c77dff; --green: #8aff2b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--txt); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.5; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 28px 16px 48px; }
+.brand { font-family: "Marker", cursive; font-size: 22px; color: var(--pink); text-align: center; margin: 0 0 18px; }
+.card { background: var(--card); border-radius: 20px; padding: 26px 22px; margin: 0 0 18px; text-align: center; }
+h1 { font-size: 30px; line-height: 1.15; margin: 0 0 10px; }
+.ok { display: inline-flex; width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: #0c0a12; font-size: 30px; font-weight: 900; align-items: center; justify-content: center; margin: 0 0 14px; }
+p { margin: 0 0 12px; color: var(--mute); }
+p b { color: var(--txt); }
+.btn { display: block; background: var(--pink); color: #fff; text-decoration: none; font-weight: 800; font-size: 17px; padding: 16px 20px; border-radius: 40px; margin: 10px auto 0; max-width: 360px; }
+.btn small { display: block; font-weight: 500; font-size: 12px; opacity: .85; }
+.btn.ghost { background: transparent; border: 2px solid #3a3546; color: var(--txt); }
+.ig { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(90deg, #f58529, #dd2a7b 45%, #8134af); color: #fff; text-decoration: none; font-weight: 800; font-size: 17px; padding: 16px 20px; border-radius: 40px; max-width: 380px; margin: 14px auto 0; }
+.ig svg { width: 22px; height: 22px; flex: none; }
+.big { font-family: "Marker", cursive; font-size: 26px; color: #fff; margin: 0 0 8px; }
+ol { text-align: left; margin: 8px auto 0; padding-left: 22px; max-width: 460px; color: var(--mute); }
+ol li { margin: 0 0 8px; }
+ol b { color: var(--txt); }
+.small { font-size: 13px; }
+a.lnk { color: var(--violet); }
+.copy { background: none; border: 0; color: var(--violet); text-decoration: underline; font: inherit; cursor: pointer; padding: 0; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="brand">Benjamin Franklin</p>
+
+  <!-- ordinateur : téléchargement lancé automatiquement -->
+  <section class="card" id="desk" hidden>
+    <div class="ok">✓</div>
+    <h1 data-t="dl.title">Your download has started</h1>
+    <p data-t="dl.sub" data-html>Plug de fou + SlowMo + Boom, all in one installer for <b id="osname">your computer</b>.</p>
+    <p class="small"><span data-t="dl.again">Nothing happened?</span> <a class="lnk" id="again" href="#" data-t="dl.click">Click here</a></p>
+  </section>
+
+  <!-- téléphone : les plugins s'installent sur un ordinateur -->
+  <section class="card" id="phone" hidden>
+    <h1 data-t="ph.title">Open this on your computer</h1>
+    <p data-t="ph.sub" data-html>Plugins install on a <b>Mac or Windows PC</b>, not on a phone. Open the email again on your computer, or copy this link: <b>benjaminfranklinmusic.com/download</b></p>
+    <p><button class="copy" id="copy" data-t="ph.copy">Copy the link</button></p>
+  </section>
+
+  <section class="card">
+    <p class="big" data-t="ig.title">One favor 🙏</p>
+    <p data-t="ig.sub">The plugins are yours, free, forever. If you like them, follow me on Instagram: that's all I ask.</p>
+    <a class="ig" id="igbtn" href="https://instagram.com/benjaminfranklinmusic" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>@benjaminfranklinmusic</span></a>
+  </section>
+
+  <section class="card" id="steps-mac" hidden>
+    <p class="big" data-t="in.title">Install in 30 seconds</p>
+    <ol>
+      <li data-t="mac.1" data-html>Open the <b>.dmg</b> you just downloaded (double-click).</li>
+      <li data-t="mac.2" data-html>Run the installer, tick the plugins you want, click <b>Install</b>.</li>
+      <li data-t="mac.3" data-html>Restart your music software. <b>Boom</b> is an instrument: load it on an instrument track.</li>
+    </ol>
+  </section>
+
+  <section class="card" id="steps-win" hidden>
+    <p class="big" data-t="in.title">Install in 30 seconds</p>
+    <ol>
+      <li data-t="win.1" data-html>Run the <b>.exe</b> you just downloaded.</li>
+      <li data-t="win.2" data-html>If Windows says <b>“Windows protected your PC”</b>: <b>More info</b> → <b>Run anyway</b>.</li>
+      <li data-t="win.3" data-html>Click <b>Next</b> to the end, then restart your music software. <b>Boom</b> is an instrument: load it on an instrument track.</li>
+    </ol>
+  </section>
+
+  <section class="card" id="others">
+    <p data-t="ot.title" class="small">Other computer?</p>
+    <a class="btn ghost" id="b-mac" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.1/Benjamin-Franklin-Plugins-Mac.dmg">Mac<small>Apple Silicon &amp; Intel · .dmg · 28 MB</small></a>
+    <a class="btn ghost" id="b-win" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.1/Benjamin-Franklin-Plugins-Windows.exe">Windows 10 / 11<small>64-bit · .exe · 9 MB</small></a>
+    <p class="small" style="margin-top:16px"><a class="lnk" href="/" data-t="ot.site">See the plugins on the website</a></p>
+  </section>
+</div>
+
+<script>
+// Page d'arrivée du mail : le téléchargement part tout seul, Instagram est proposé après
+const MAC = document.getElementById("b-mac").href;
+const WIN = document.getElementById("b-win").href;
+
+const FR = {
+  "dl.title": "Ton téléchargement a commencé",
+  "dl.sub": "Plug de fou + SlowMo + Boom, dans un seul installateur pour <b id=\"osname\">ton ordinateur</b>.",
+  "dl.again": "Rien ne s'est passé ?",
+  "dl.click": "Clique ici",
+  "ph.title": "Ouvre ce lien sur ton ordinateur",
+  "ph.sub": "Les plugins s'installent sur un <b>Mac ou un PC Windows</b>, pas sur un téléphone. Rouvre le mail sur ton ordinateur, ou copie ce lien : <b>benjaminfranklinmusic.com/download</b>",
+  "ph.copy": "Copier le lien",
+  "ig.title": "Un petit service 🙏",
+  "ig.sub": "Les plugins sont à toi, gratuits, pour toujours. S'ils te plaisent, abonne-toi à mon Instagram : c'est tout ce que je demande.",
+  "in.title": "Installer en 30 secondes",
+  "mac.1": "Ouvre le <b>.dmg</b> que tu viens de télécharger (double-clic).",
+  "mac.2": "Lance l'installateur, coche les plugins que tu veux, clique sur <b>Installer</b>.",
+  "mac.3": "Relance ton logiciel de musique. <b>Boom</b> est un instrument : charge-le sur une piste d'instrument.",
+  "win.1": "Lance le <b>.exe</b> que tu viens de télécharger.",
+  "win.2": "Si Windows affiche <b>« Windows a protégé votre ordinateur »</b> : <b>Informations complémentaires</b> → <b>Exécuter quand même</b>.",
+  "win.3": "Clique sur <b>Suivant</b> jusqu'au bout, puis relance ton logiciel de musique. <b>Boom</b> est un instrument : charge-le sur une piste d'instrument.",
+  "ot.title": "Un autre ordinateur ?",
+  "ot.site": "Voir les plugins sur le site"
+};
+
+const fr = new URLSearchParams(location.search).get("lang") === "fr";
+if (fr) {
+  document.documentElement.lang = "fr";
+  document.title = "Téléchargement : 3 plugins gratuits de Benjamin Franklin";
+  document.querySelectorAll("[data-t]").forEach(n => {
+    const s = FR[n.dataset.t];
+    if (s) { if (n.hasAttribute("data-html")) n.innerHTML = s; else n.textContent = s; }
+  });
+  try { localStorage.setItem("bf-lang", "fr"); } catch (e) {}
+}
+
+// l'abonnement n'est plus exigé avant : la page d'accueil ne doit pas reverrouiller
+try { localStorage.setItem("bf-unlocked", "1"); } catch (e) {}
+
+const ua = navigator.userAgent;
+const iPad = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+const phone = iPad || /iPhone|iPad|iPod|Android|Mobile/i.test(ua);
+const win = !phone && /Windows/i.test(ua);
+const mac = !phone && /Macintosh|Mac OS X/i.test(ua);
+
+if (phone) {
+  document.getElementById("phone").hidden = false;
+  document.getElementById("copy").addEventListener("click", e => {
+    const url = "https://benjaminfranklinmusic.com/download/" + (fr ? "?lang=fr" : "");
+    const done = () => { e.target.textContent = fr ? "Lien copié ✓" : "Link copied ✓"; };
+    if (navigator.share) navigator.share({ url }).catch(() => {});
+    else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => {});
+  });
+} else if (mac || win) {
+  const file = mac ? MAC : WIN;
+  document.getElementById("desk").hidden = false;
+  document.getElementById(mac ? "steps-mac" : "steps-win").hidden = false;
+  document.getElementById("osname").textContent = mac ? "Mac" : "Windows";
+  document.getElementById("again").href = file;
+  document.getElementById(mac ? "b-mac" : "b-win").hidden = true;
+  setTimeout(() => { location.href = file; }, 700);
+}
+</script>
+</body>
+</html>
