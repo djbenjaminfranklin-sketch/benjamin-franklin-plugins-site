@@ -65,12 +65,32 @@ h1,h2,h3{margin:0;line-height:1.05}
 .ticker-in{display:inline-block;animation:tick 22s linear infinite}
 @keyframes tick{to{transform:translateX(-50%)}}
 
+/* logiciels compatibles */
+.daws{text-align:center;padding:40px 20px 10px}
+.daws-title{font-family:"Marker",cursive;font-size:26px;margin:0 0 14px;color:var(--cyan);transform:rotate(-2deg)}
+.daws-list{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:860px;margin:0 auto}
+.daws-list span{padding:6px 16px;border-radius:999px;border:2px solid #3b2d57;background:#1a1229;font-size:16px}
+.daws-list span:nth-child(3n+1){border-color:rgba(255,111,158,.6)}
+.daws-list span:nth-child(3n+2){border-color:rgba(139,61,255,.7)}
+.daws-list span:nth-child(3n){border-color:rgba(138,255,43,.55)}
+.daws-note{font-size:14px;opacity:.7;margin:14px 0 0}
+
 /* sections plugins */
 .plugin{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:90px max(20px,6vw);position:relative}
 .p-text{max-width:560px}
 .num{font-family:"Marker",cursive;font-size:20px;opacity:.6;margin:0}
 .p-title{font-family:"Marker",cursive;font-weight:400;font-size:clamp(48px,7vw,86px);transform:rotate(-3deg);margin:4px 0 8px}
 .p-tagline{font-size:22px;margin:0 0 18px}
+.ptype{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 16px}
+.pill{font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:3px 11px;border-radius:999px;border:2px solid currentColor;opacity:.9}
+.pill.kind{opacity:1}
+.p-fou .ptype{color:var(--pink2)}
+.p-fou .pill.kind{background:var(--pink);border-color:var(--pink);color:var(--ink)}
+.p-slow .ptype{color:#fff}
+.p-slow .pill.kind{background:#fff;border-color:#fff;color:var(--violet)}
+.p-boom .ptype{color:var(--green)}
+.p-boom .pill.kind{background:var(--green);border-color:var(--green);color:var(--ink)}
+.ptype-hint{font-size:14px;opacity:.75}
 .feats{list-style:none;padding:0;margin:20px 0 28px}
 .feats li{padding:6px 0 6px 34px;position:relative}
 .feats li::before{content:"✦";position:absolute;left:4px;top:5px;font-size:18px}
