@@ -60,6 +60,15 @@ const FR = {
   "daws.note": "<b>VST3</b> sur Mac et Windows · <b>AU</b> sur Mac (Logic Pro, GarageBand, Ableton Live)",
   "faq.q5": "Ça marche dans quels logiciels ?",
   "faq.a5": "Logic Pro et GarageBand (Mac, AU), ainsi qu'Ableton Live, Cubase, Nuendo, FL Studio, Studio One, Bitwig et Reaper (Mac et Windows, VST3 ; Ableton aussi en AU sur Mac). Plug de fou et SlowMo sont des <b>effets</b> (à insérer sur une piste audio) ; Boom est un <b>instrument</b> (à charger sur une piste instrument / MIDI). Pro Tools ? Pas encore : il faut le format AAX.",
+  "pack.new": "Nouveau",
+  "pack.title": "Les 3 plugins, un seul installateur",
+  "pack.sub": "Plug de fou + SlowMo + Boom d'un coup, bien rangés dans un dossier <b>« Benjamin Franklin »</b>. Coche ceux que tu veux, clique sur Installer, c'est fini.",
+  "pack.or": "Tu n'en veux qu'un ? Chaque plugin a son propre téléchargement plus bas.",
+  "gate.btn": "Abonne-toi à <b>@benjaminfranklinmusic</b> sur Instagram pour débloquer",
+  "gate.why": "C'est le seul prix : un abonnement. En échange, tous les plugins sont à toi. Gratuits, pour toujours.",
+  "gate.skip": "Déjà abonné ? Débloquer",
+  "gate.thanks": "Débloqué ! Merci pour le follow ♥",
+  "gate.note": "Verrouillé : abonne-toi sur Instagram pour débloquer (un clic, tout en haut)",
   "faq.q3": "Ça marche sur mon Mac M4 / M5 ?",
   "faq.a3": "Oui : Apple Silicon (M1 à M5) et Mac Intel, à partir de macOS 12.",
   "faq.q4": "Et sur Linux ? Sur iPad ?",
@@ -136,3 +145,52 @@ document.getElementById("boombtn").addEventListener("click", () => {
 try { counts = JSON.parse(localStorage.getItem("bf-counts")); } catch (e) {}
 renderCounts();
 loadCounts().then(r => { if (r.data) { counts = r.data; renderCounts(); } });
+
+// verrou : les téléchargements s'ouvrent après un passage sur Instagram (impossible de vérifier l'abonnement)
+const root = document.documentElement;
+let igOpenedAt = 0, igLeft = false, igTimer = null;
+
+function unlock() {
+  if (!root.classList.contains("locked")) return;
+  root.classList.remove("locked");
+  root.classList.add("just-unlocked");
+  try { localStorage.setItem("bf-unlocked", "1"); } catch (e) {}
+  const t = document.createElement("div");
+  t.className = "boomtxt";
+  t.textContent = root.lang === "fr" ? "DÉBLOQUÉ !" : "UNLOCKED!";
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 900);
+}
+
+// au retour sur la page, au moins 3 s après l'ouverture d'Instagram
+function backFromInstagram() {
+  if (!igOpenedAt) return;
+  if (document.visibilityState === "hidden" || !document.hasFocus()) { igLeft = true; return; }
+  if (!igLeft) return;
+  clearTimeout(igTimer);
+  igTimer = setTimeout(() => {
+    if (document.visibilityState === "visible") unlock();
+  }, Math.max(0, igOpenedAt + 3000 - Date.now()));
+}
+
+document.getElementById("igfollow").addEventListener("click", () => {
+  igOpenedAt = Date.now();
+  igLeft = false;
+});
+window.addEventListener("blur", backFromInstagram);
+window.addEventListener("focus", backFromInstagram);
+document.addEventListener("visibilitychange", backFromInstagram);
+document.getElementById("gateskip").addEventListener("click", unlock);
+
+// un bouton verrouillé renvoie vers le bloc Instagram
+function nudgeGate() {
+  const gate = document.getElementById("gate");
+  gate.scrollIntoView({ behavior: "smooth", block: "center" });
+  gate.classList.remove("nudge");
+  void gate.offsetWidth;
+  gate.classList.add("nudge");
+}
+document.querySelectorAll(".btn").forEach(b => b.addEventListener("click", e => {
+  if (root.classList.contains("locked")) { e.preventDefault(); nudgeGate(); }
+}));
+document.querySelectorAll(".lock-note").forEach(b => b.addEventListener("click", nudgeGate));

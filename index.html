@@ -13,6 +13,7 @@
 <link rel="icon" href="img/boombtn.webp">
 <link rel="preload" href="fonts/PermanentMarker-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="style.css">
+<script>try{if(localStorage.getItem("bf-unlocked")!=="1")document.documentElement.classList.add("locked")}catch(e){document.documentElement.classList.add("locked")}</script>
 </head>
 <body>
 
@@ -47,6 +48,25 @@
   <span data-i18n="ticker">FREE ✦ VST3 ✦ AU ✦ MAC ✦ WINDOWS ✦ TEMPO-SYNCED ✦ NO SUBSCRIPTION ✦ NO ACCOUNT ✦ </span><span data-i18n="ticker">FREE ✦ VST3 ✦ AU ✦ MAC ✦ WINDOWS ✦ TEMPO-SYNCED ✦ NO SUBSCRIPTION ✦ NO ACCOUNT ✦ </span>
 </div></div>
 
+<section class="pack" id="pack">
+  <p class="pack-new" data-i18n="pack.new">New</p>
+  <h2 class="pack-title" data-i18n="pack.title">All 3 plugins — one installer</h2>
+  <p class="pack-sub" data-i18n-html="pack.sub">Plug de fou + SlowMo + Boom in one go, neatly filed in a <b>“Benjamin Franklin”</b> folder. Tick the ones you want, click Install, done.</p>
+  <div class="gate" id="gate">
+    <a class="ig-btn" href="https://instagram.com/benjaminfranklinmusic" target="_blank" rel="noopener" id="igfollow"><span class="ig-ico" aria-hidden="true"></span><span data-i18n-html="gate.btn">Follow <b>@benjaminfranklinmusic</b> on Instagram to unlock</span></a>
+    <p class="gate-why" data-i18n="gate.why">That's the only price: a follow. In exchange, every plugin is yours. Free, forever.</p>
+    <button class="gate-skip" id="gateskip" data-i18n="gate.skip">Already following? Unlock</button>
+  </div>
+  <p class="gate-thanks" data-i18n="gate.thanks">Unlocked! Thanks for the follow ♥</p>
+  <div class="dl pack-dl">
+    <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Benjamin-Franklin-Plugins-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="28,2 Mo" data-en="28.2 MB">28.2 MB</span></small></a>
+    <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Benjamin-Franklin-Plugins-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="28,2 Mo" data-en="28.2 MB">28.2 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
+    <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Benjamin-Franklin-Plugins-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="8,9 Mo" data-en="8.9 MB">8.9 MB</span></small></a>
+  </div>
+  <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
+  <p class="pack-or" data-i18n="pack.or">Prefer just one? Each plugin has its own download below.</p>
+</section>
+
 <section class="counter" id="counter" hidden>
   <p class="counter-big"><span id="total">0</span></p>
   <p class="counter-txt" data-i18n="cnt.txt">producers have already downloaded a plugin. What about you?</p>
@@ -77,11 +97,12 @@
       <div class="dl-box">
         <div class="dl-head"><span class="free" data-i18n="free">100% FREE</span><span class="count" data-count="Plug-de-fou"></span></div>
         <div class="dl">
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Plug-de-fou-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="7 Mo" data-en="7 MB">7 MB</span></small></a>
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Plug-de-fou-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="7 Mo" data-en="7 MB">7 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
-          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Plug-de-fou-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="4,7 Mo" data-en="4.7 MB">4.7 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Plug-de-fou-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="7 Mo" data-en="7 MB">7 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Plug-de-fou-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="7 Mo" data-en="7 MB">7 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
+          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Plug-de-fou-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="4,7 Mo" data-en="4.7 MB">4.7 MB</span></small></a>
         </div>
         <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
+        <button class="lock-note" data-i18n="gate.note">Locked: follow on Instagram to unlock (one click, up top)</button>
       </div>
     </div>
     <figure class="p-shot"><img src="img/shot-plugdefou.webp" alt="Plug de fou" width="1000" height="740" loading="lazy"></figure>
@@ -105,11 +126,12 @@
       <div class="dl-box">
         <div class="dl-head"><span class="free" data-i18n="free">100% FREE</span><span class="count" data-count="SlowMo"></span></div>
         <div class="dl">
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/SlowMo-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="9,8 Mo" data-en="9.8 MB">9.8 MB</span></small></a>
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/SlowMo-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="9,8 Mo" data-en="9.8 MB">9.8 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
-          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/SlowMo-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="5,4 Mo" data-en="5.4 MB">5.4 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/SlowMo-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="9,8 Mo" data-en="9.8 MB">9.8 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/SlowMo-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="9,8 Mo" data-en="9.8 MB">9.8 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
+          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/SlowMo-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="5,4 Mo" data-en="5.4 MB">5.4 MB</span></small></a>
         </div>
         <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
+        <button class="lock-note" data-i18n="gate.note">Locked: follow on Instagram to unlock (one click, up top)</button>
       </div>
     </div>
   </section>
@@ -131,11 +153,12 @@
       <div class="dl-box">
         <div class="dl-head"><span class="free" data-i18n="free">100% FREE</span><span class="count" data-count="Boom"></span></div>
         <div class="dl">
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Boom-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="10 Mo" data-en="10 MB">10 MB</span></small></a>
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Boom-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="10 Mo" data-en="10 MB">10 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
-          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Boom-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="5,6 Mo" data-en="5.6 MB">5.6 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Boom-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="10 Mo" data-en="10 MB">10 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Boom-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="10 Mo" data-en="10 MB">10 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
+          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.0/Boom-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="5,6 Mo" data-en="5.6 MB">5.6 MB</span></small></a>
         </div>
         <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
+        <button class="lock-note" data-i18n="gate.note">Locked: follow on Instagram to unlock (one click, up top)</button>
       </div>
     </div>
     <figure class="p-shot">

@@ -17,6 +17,7 @@
   .card.Plug-de-fou .n{color:var(--pink)}
   .card.SlowMo .n{color:var(--violet2)}
   .card.Boom .n{color:var(--green)}
+  .card.pack .n{color:#b98bff}
   .card small{opacity:.75}
   table{width:100%;border-collapse:collapse;font-size:15px}
   th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #33244f}
@@ -37,12 +38,13 @@
     </table>
   </div>
   <p class="state" id="note"></p>
+  <p class="state" id="packnote"></p>
 </main>
 <script src="counts.js"></script>
 <script>
 const T = {
-  en: { h1: "Downloads", loading: "Loading…", fail: "Can't reach GitHub right now (60 requests per hour limit). Try again in a few minutes.", live: "Up to date: ", cached: "GitHub isn't answering, last known value: ", total: "in total", th: ["Version", "File", "Size", "Downloads"], mb: "MB", note: "Note: both Mac buttons (Apple Silicon and Intel) point to the same .dmg file, so they are counted together." },
-  fr: { h1: "Téléchargements", loading: "Chargement…", fail: "Impossible de joindre GitHub pour l'instant (limite de 60 requêtes par heure). Réessaie dans quelques minutes.", live: "À jour : ", cached: "GitHub ne répond pas, dernière valeur connue : ", total: "au total", th: ["Version", "Fichier", "Taille", "Téléchargements"], mb: "Mo", note: "Note : les deux boutons Mac (Apple Silicon et Intel) mènent au même fichier .dmg, ils sont donc comptés ensemble." }
+  en: { h1: "Downloads", loading: "Loading…", fail: "Can't reach GitHub right now (60 requests per hour limit). Try again in a few minutes.", live: "Up to date: ", cached: "GitHub isn't answering, last known value: ", total: "in total", th: ["Version", "File", "Size", "Downloads"], mb: "MB", note: "Note: both Mac buttons (Apple Silicon and Intel) point to the same .dmg file, so they are counted together.", pack: "All-in-one installer", packnote: "The all-in-one installer contains the 3 plugins: each download of it adds +1 to Plug de fou, SlowMo and Boom (and counts once in the total)." },
+  fr: { h1: "Téléchargements", loading: "Chargement…", fail: "Impossible de joindre GitHub pour l'instant (limite de 60 requêtes par heure). Réessaie dans quelques minutes.", live: "À jour : ", cached: "GitHub ne répond pas, dernière valeur connue : ", total: "au total", th: ["Version", "Fichier", "Taille", "Téléchargements"], mb: "Mo", note: "Note : les deux boutons Mac (Apple Silicon et Intel) mènent au même fichier .dmg, ils sont donc comptés ensemble.", pack: "Installateur groupé", packnote: "L'installateur groupé contient les 3 plugins : chacun de ses téléchargements compte +1 pour Plug de fou, SlowMo et Boom (et une seule fois dans le total)." }
 };
 let lang = "en";
 try { if (localStorage.getItem("bf-lang") === "fr") lang = "fr"; } catch (e) {}
@@ -56,6 +58,7 @@ function render() {
   document.getElementById("h1").textContent = t.h1;
   t.th.forEach((x, i) => document.getElementById("th" + (i + 1)).textContent = x);
   document.getElementById("note").textContent = t.note;
+  document.getElementById("packnote").textContent = t.packnote;
   const state = document.getElementById("state");
   if (!result) { state.textContent = t.loading; return; }
   const { data, live } = result;
@@ -65,6 +68,7 @@ function render() {
   for (const [name, p] of Object.entries(data.plugins)) {
     html += `<div class="card ${name}"><div class="n">${fmt(p.total)}</div>${name.replace(/-/g, " ")}<br><small>Mac ${fmt(p.mac)} · Windows ${fmt(p.win)}</small></div>`;
   }
+  if (data.pack) html += `<div class="card pack"><div class="n">${fmt(data.pack.total)}</div>${t.pack}<br><small>Mac ${fmt(data.pack.mac)} · Windows ${fmt(data.pack.win)}</small></div>`;
   document.getElementById("cards").innerHTML = html;
   document.getElementById("rows").innerHTML = data.files
     .slice().sort((a, b) => b.count - a.count)

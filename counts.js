@@ -10,6 +10,10 @@ function pluginOf(name) {
   return null;
 }
 
+function isPack(name) {
+  return name.toLowerCase().replace(/[^a-z]/g, "").startsWith("benjaminfranklinplugins");
+}
+
 function platformOf(name) {
   if (/\.dmg$|mac/i.test(name)) return "mac";
   if (/\.exe$|win/i.test(name)) return "win";
@@ -17,17 +21,23 @@ function platformOf(name) {
 }
 
 function summarize(releases) {
-  const out = { total: 0, plugins: {}, files: [], at: Date.now() };
+  const out = { total: 0, plugins: {}, pack: { total: 0, mac: 0, win: 0 }, files: [], at: Date.now() };
   for (const k in PLUGINS) out.plugins[PLUGINS[k]] = { total: 0, mac: 0, win: 0 };
   for (const r of releases) {
     for (const a of r.assets || []) {
       out.total += a.download_count;
       out.files.push({ release: r.tag_name, name: a.name, count: a.download_count, size: a.size });
-      const p = pluginOf(a.name);
-      if (!p) continue;
       const plat = platformOf(a.name);
-      out.plugins[p].total += a.download_count;
-      if (plat !== "other") out.plugins[p][plat] += a.download_count;
+      // l'installateur groupé contient les 3 plugins : +1 pour chacun
+      const targets = isPack(a.name) ? Object.values(PLUGINS) : [pluginOf(a.name)].filter(Boolean);
+      if (isPack(a.name)) {
+        out.pack.total += a.download_count;
+        if (plat !== "other") out.pack[plat] += a.download_count;
+      }
+      for (const p of targets) {
+        out.plugins[p].total += a.download_count;
+        if (plat !== "other") out.plugins[p][plat] += a.download_count;
+      }
     }
   }
   return out;

@@ -65,6 +65,42 @@ h1,h2,h3{margin:0;line-height:1.05}
 .ticker-in{display:inline-block;animation:tick 22s linear infinite}
 @keyframes tick{to{transform:translateX(-50%)}}
 
+/* pack : les 3 plugins en un installateur */
+.pack{max-width:980px;margin:40px auto 10px;padding:40px 28px 34px;text-align:center;border-radius:28px;position:relative;
+  background:linear-gradient(#150f20,#150f20) padding-box,linear-gradient(110deg,var(--pink),var(--violet2),var(--green)) border-box;border:4px solid transparent;
+  box-shadow:0 0 60px rgba(139,61,255,.25)}
+.pack-new{display:inline-block;margin:0 0 10px;font-family:"Marker",cursive;font-size:18px;padding:3px 14px;border-radius:999px;background:var(--green);color:var(--ink);transform:rotate(-4deg)}
+.pack-title{font-family:"Marker",cursive;font-weight:400;font-size:clamp(32px,5.6vw,58px);text-transform:uppercase;background:linear-gradient(90deg,var(--pink2),#b98bff,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .1em}
+.pack-sub{max-width:620px;margin:12px auto 22px;font-size:18px}
+.pack .dl{max-width:760px;margin:0 auto}
+.pack .btn{background:var(--violet2);color:#fff;border-color:var(--violet2);box-shadow:5px 5px 0 var(--pink)}
+.pack .btn.ghost{background:transparent;color:#fff;border-color:#fff;box-shadow:none}
+.pack .whichmac{margin-top:16px}
+.pack-or{margin:8px 0 0;font-size:15px;opacity:.7}
+
+/* verrou Instagram */
+.gate{margin:0 auto 22px;max-width:640px}
+.ig-btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:clamp(17px,2.4vw,21px);line-height:1.25;padding:16px 26px;border-radius:20px;
+  background:linear-gradient(45deg,#f58529,#dd2a7b 45%,#8134af 75%,#515bd4);box-shadow:0 8px 30px rgba(221,42,123,.45);transition:.15s;animation:pulse 1.8s ease-in-out infinite}
+.ig-btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.ig-ico{flex:none;width:30px;height:30px;border:3px solid #fff;border-radius:9px;position:relative}
+.ig-ico::before{content:"";position:absolute;inset:6px;border:3px solid #fff;border-radius:50%}
+.ig-ico::after{content:"";position:absolute;top:3px;right:3px;width:4px;height:4px;border-radius:50%;background:#fff}
+.gate-why{font-size:15px;opacity:.8;margin:14px 0 4px}
+.gate-skip{font:inherit;font-size:14px;background:none;border:0;color:#b9a6cf;text-decoration:underline;cursor:pointer;padding:4px}
+.gate-skip:hover{color:#fff}
+.gate-thanks{display:none;font-family:"Marker",cursive;font-size:22px;color:var(--green);margin:0 0 18px}
+.gate.nudge{animation:quake .45s}
+.lock-note{display:none;font:inherit;font-size:14px;margin-top:12px;background:none;border:0;padding:0;color:inherit;opacity:.85;text-decoration:underline;cursor:pointer}
+html:not(.locked) .gate{display:none}
+html.locked .lock-note{display:block}
+html.just-unlocked .gate-thanks{display:block}
+html.locked .btn{filter:grayscale(.75) brightness(.7);opacity:.6;cursor:not-allowed;position:relative}
+html.locked .btn::after{content:"🔒";position:absolute;top:8px;right:10px;font-size:15px;filter:none}
+html.locked .btn:hover{transform:none}
+html.just-unlocked .btn{animation:pop .6s ease}
+@keyframes pop{40%{transform:scale(1.08) rotate(-2deg)}}
+
 /* logiciels compatibles */
 .daws{text-align:center;padding:40px 20px 10px}
 .daws-title{font-family:"Marker",cursive;font-size:26px;margin:0 0 14px;color:var(--cyan);transform:rotate(-2deg)}
@@ -212,6 +248,7 @@ footer p{margin:8px 0}
   .install{padding:70px 16px}
   .panel{padding:20px 18px}
   .dl{grid-template-columns:1fr}
+  .pack{margin:30px 12px 10px;padding:30px 16px 26px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .nowrap{white-space:nowrap}
