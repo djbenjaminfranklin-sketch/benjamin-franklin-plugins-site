@@ -50,6 +50,8 @@ const FR = {
   "win.note": "Pourquoi l'alerte ? L'installateur n'est pas encore signé numériquement (ça coûte une fortune). Le fichier est sain : il vient directement d'ici.",
   "faq.q1": "C'est vraiment gratuit ?",
   "faq.a1": "Oui. Pas d'abonnement, pas de compte, pas d'e-mail à donner, pas de version « pro » cachée. Tu télécharges, tu produis.",
+  "faq.q2": "Je peux les utiliser dans des morceaux commerciaux ?",
+  "faq.a2": "Oui. Utilise-les sur tout ce que tu sors, vends ou diffuses : aucune redevance, aucun crédit obligatoire, aucune restriction. (Un petit clin d'œil fait toujours plaisir !)",
   "faq.q3": "Ça marche sur mon Mac M4 / M5 ?",
   "faq.a3": "Oui : Apple Silicon (M1 à M5) et Mac Intel, à partir de macOS 12.",
   "faq.q4": "Et sur Linux ? Sur iPad ?",
