@@ -29,6 +29,7 @@ const FR = {
   "boom.f2": "<b>Sub boom</b> réglable : type, hauteur, longueur, désaccord",
   "boom.f3": "<b>Swipe</b> montant ou descendant, de 1 à 128 mesures",
   "boom.f4": "Toujours synchro avec le tempo de ton projet",
+  "boom.inst": "<b>Boom est un instrument, pas un effet.</b> Tu ne le trouveras pas dans les effets d'insert : crée une <b>piste d'instrument</b> et choisis <b>Benjamin Franklin › Boom</b>. Dans Cubase : Projet › Ajouter une piste › Instrument. Dans Ableton : Instruments. Dans Logic : Instrument logiciel › Instruments AU.",
   "bio.sticker": "C'est lui !",
   "bio.title": "Qui est",
   "bio.q": "&nbsp;?",
