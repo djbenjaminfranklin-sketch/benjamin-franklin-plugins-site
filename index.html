@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benjamin Franklin Plugins</title>
+<meta name="description" content="3 plugins audio gratuits (VST3 / AU) signés Benjamin Franklin : Plug de fou, SlowMo et Boom. Mac et Windows.">
+<meta name="author" content="Benjamin Franklin">
+<meta property="og:title" content="Benjamin Franklin Plugins : 3 plugins gratuits, 100 % fous">
+<meta property="og:description" content="Glitch, ralenti et boom de drop. VST3 + AU, Mac et Windows. Gratuit, pour toujours.">
+<meta property="og:image" content="img/shot-slowmo.webp">
+<meta name="theme-color" content="#0c0a12">
+<link rel="icon" href="img/boombtn.webp">
+<link rel="preload" href="fonts/PermanentMarker-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="tag small" href="#">Benjamin Franklin</a>
+  <nav>
+    <a href="#plugins" data-i18n="nav.plugins">Les plugins</a>
+    <a href="#bio" data-i18n="nav.bio">Le gars</a>
+    <a href="#install" data-i18n="nav.install">Installer</a>
+  </nav>
+  <button id="lang" class="lang" aria-label="Change language">EN</button>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <p class="kicker" data-i18n="hero.kicker">Une marque de plugins signée</p>
+  <h1 class="tag huge glitch" data-text="Benjamin Franklin">Benjamin Franklin</h1>
+  <p class="hero-sub" data-i18n-html="hero.sub">3 plugins audio <b>gratuits</b>. Zéro abonnement. Zéro compte à créer. Juste du son qui fait n'importe quoi (mais en rythme).</p>
+  <div class="chips">
+    <a class="chip pink" href="#plugdefou">Plug de fou</a>
+    <a class="chip violet" href="#slowmo">SlowMo</a>
+    <a class="chip green" href="#boom">Boom</a>
+  </div>
+  <p class="compat" data-i18n="hero.compat">VST3 + AU sur Mac (Apple Silicon M1 → M5 et Intel, macOS 12+) · VST3 sur Windows 10/11 64 bits</p>
+  <div class="mascots" aria-hidden="true">
+    <img class="m-bird" src="img/bird.webp" alt="" width="700" height="558">
+    <img class="m-sci" src="img/scientist.webp" alt="" width="600" height="411">
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-in">
+  <span data-i18n="ticker">GRATUIT ✦ VST3 ✦ AU ✦ MAC ✦ WINDOWS ✦ CALÉ SUR LE TEMPO ✦ AUCUN ABONNEMENT ✦ AUCUN COMPTE ✦ </span><span data-i18n="ticker">GRATUIT ✦ VST3 ✦ AU ✦ MAC ✦ WINDOWS ✦ CALÉ SUR LE TEMPO ✦ AUCUN ABONNEMENT ✦ AUCUN COMPTE ✦ </span>
+</div></div>
+
+<main id="plugins">
+
+  <!-- PLUG DE FOU -->
+  <section id="plugdefou" class="plugin p-fou">
+    <div class="p-text">
+      <p class="num">#01</p>
+      <h2 class="p-title">Plug de fou</h2>
+      <p class="p-tagline" data-i18n="fou.tag">Le glitch qui pète les plombs. En rythme.</p>
+      <p data-i18n-html="fou.desc">Six machines à chaos calées sur le tempo de ton morceau : <b>stutter</b>, <b>bitcrush</b>, <b>tape stop</b>, <b>reverse</b>, <b>gate</b> et <b>pitch glitch</b>. Tu tournes le gros bouton <b>CHAOS</b>, et GLITCH-O, la mascotte, commence à stresser. Plus il transpire, plus ça part en vrille.</p>
+      <ul class="feats">
+        <li data-i18n-html="fou.f1"><b>20 recettes</b> prêtes à l'emploi pour démarrer en une seconde</li>
+        <li data-i18n-html="fou.f2"><b>DIVISION</b> de 1/4 à 1/32 : du hachage tranquille au vrai chaos</li>
+        <li data-i18n-html="fou.f3"><b>MIX</b> pour doser le désastre</li>
+        <li data-i18n-html="fou.f4">Tes <b>configs</b> sauvegardées, pour retrouver ton chaos préféré</li>
+      </ul>
+      <div class="dl">
+        <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Plug-de-fou-Mac.dmg"><span data-i18n="dl.mac">Mac</span> <small>.dmg · 7 Mo</small></a>
+        <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Plug-de-fou-Windows.exe"><span class="os">⊞</span> Windows <small>.exe · 4,7 Mo</small></a>
+      </div>
+    </div>
+    <figure class="p-shot"><img src="img/shot-plugdefou.webp" alt="Plug de fou" width="1000" height="740" loading="lazy"></figure>
+  </section>
+
+  <!-- SLOWMO -->
+  <section id="slowmo" class="plugin p-slow">
+    <figure class="p-shot"><img src="img/shot-slowmo.webp" alt="SlowMo" width="1000" height="762" loading="lazy"></figure>
+    <div class="p-text">
+      <p class="num">#02</p>
+      <h2 class="p-title">SlowMo!</h2>
+      <p class="p-tagline" data-i18n="slow.tag">Le ralenti façon film d'action. Sans voix de démon.</p>
+      <p data-i18n-html="slow.desc">Tu veux ralentir tout le morceau dans le break, puis claquer le drop à pleine vitesse ? SlowMo ralentit le son <b>sans changer sa hauteur</b> (time-stretch). Pas de voix qui descend dans les graves, pas de canard enroué. Juste un ralenti propre, et un oiseau violet qui perd la tête.</p>
+      <ul class="feats">
+        <li data-i18n-html="slow.f1"><b>2 boutons</b>, c'est tout : <b>SLOW</b> et <b>TARGET</b></li>
+        <li data-i18n-html="slow.f2">Affichage du tempo en direct : <b>120 → 57 BPM</b></li>
+        <li data-i18n-html="slow.f3">Parfait pour les breaks, les intros et les fausses fins</li>
+        <li data-i18n-html="slow.f4">Retour au tempo au drop, comme si de rien n'était</li>
+      </ul>
+      <div class="dl">
+        <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/SlowMo-Mac.dmg"><span data-i18n="dl.mac">Mac</span> <small>.dmg · 9,8 Mo</small></a>
+        <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/SlowMo-Windows.exe"><span class="os">⊞</span> Windows <small>.exe · 5,4 Mo</small></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOM -->
+  <section id="boom" class="plugin p-boom">
+    <div class="p-text">
+      <p class="num">#03</p>
+      <h2 class="p-title">Boom!</h2>
+      <p class="p-tagline" data-i18n="boom.tag">Le savant fou des drops.</p>
+      <p data-i18n-html="boom.desc">Boom fabrique tes impacts de drop : <b>sub boom</b>, <b>downlifter</b>, <b>uplifter</b>. Et comme le son est <b>généré</b> (pas un sample étiré), il reste propre jusqu'à <b>128 mesures</b>, calé pile sur ton tempo. Les samples de risers ne vont jamais aussi loin et sonnent comme une casserole une fois étirés. Boom, lui, ne casse pas.</p>
+      <ul class="feats">
+        <li data-i18n-html="boom.f1">Un gros bouton <b>BOOM!</b> (oui, on appuie dessus)</li>
+        <li data-i18n-html="boom.f2"><b>Sub boom</b> réglable : type, hauteur, longueur, désaccord</li>
+        <li data-i18n-html="boom.f3"><b>Swipe</b> montant ou descendant, de 1 à 128 mesures</li>
+        <li data-i18n-html="boom.f4">Toujours synchro avec le tempo de ton projet</li>
+      </ul>
+      <div class="dl">
+        <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Boom-Mac.dmg"><span data-i18n="dl.mac">Mac</span> <small>.dmg · 10 Mo</small></a>
+        <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.0.0/Boom-Windows.exe"><span class="os">⊞</span> Windows <small>.exe · 5,6 Mo</small></a>
+      </div>
+    </div>
+    <figure class="p-shot">
+      <img src="img/shot-boom.webp" alt="Boom" width="1000" height="814" loading="lazy">
+      <button class="boombtn" id="boombtn" aria-label="BOOM"><img src="img/boombtn.webp" alt="" width="300" height="295"></button>
+    </figure>
+  </section>
+</main>
+
+<section id="bio" class="bio">
+  <div class="bio-photo">
+    <img src="img/benjamin.webp" alt="Benjamin Franklin" width="500" height="750" loading="lazy">
+    <span class="sticker" data-i18n="bio.sticker">C'est lui !</span>
+  </div>
+  <div class="bio-text">
+    <h2><span data-i18n="bio.title">Qui est</span> <span class="tag">Benjamin Franklin</span> ?</h2>
+    <p class="nope" data-i18n="bio.nope">(Pas celui des billets de 100 dollars. L'autre.)</p>
+    <p data-i18n-html="bio.p1">DJ et producteur parisien, Benjamin Franklin fait danser la scène house depuis plus de 20 ans. Il a grandi dans les clubs mythiques des années 90 (<b>Les Bains Douches, La Locomotive, Le Queen</b>) et s'est forgé un son à lui, entre house, soul et rythmes latins.</p>
+    <p data-i18n-html="bio.p2">Ses soirées <b>« Who The Fuck Is Benjamin Franklin? »</b> ont mis le feu de Paris à Miami en passant par Buenos Aires. Signé sur <b>MIYU Records</b>, il a sorti des titres comme <b>« This Is My House »</b>, <b>« Chupa Sin Mano »</b> et <b>« THIS SOUND »</b>.</p>
+    <p class="why" data-i18n-html="bio.p3">Et un jour, il s'est dit : <i>« Les outils dont j'ai besoin en studio, je vais les fabriquer moi-même. »</i> Il a donc créé sa propre marque de plugins… et décidé de les <b>offrir à tous les producteurs</b>. Gratuitement. Sans piège. Parce que la musique, ça se partage.</p>
+    <div class="socials">
+      <a href="https://open.spotify.com/artist/7GALLXYUZiyfa1gYGMJOHU" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://instagram.com/benjaminfranklinmusic" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://tiktok.com/@benjamin.franklin2153" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<section id="install" class="install">
+  <h2 data-i18n="inst.title">Installer en 30 secondes</h2>
+  <p class="inst-sub" data-i18n="inst.sub">Promis, c'est plus simple que de caler un kick.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-tab="mac" role="tab">Mac</button>
+    <button class="tab" data-tab="win" role="tab">⊞ Windows</button>
+  </div>
+  <div class="panel on" id="tab-mac">
+    <ol>
+      <li data-i18n-html="mac.1">Télécharge le <b>.dmg</b> du plugin et ouvre-le (double-clic).</li>
+      <li data-i18n-html="mac.2">Dans le Finder, fais <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>G</kbd> et tape <code>~/Library/Audio/Plug-Ins/</code></li>
+      <li data-i18n-html="mac.3">Glisse le fichier <b>.vst3</b> dans le dossier <code>VST3</code>, et le fichier <b>.component</b> dans le dossier <code>Components</code>.</li>
+      <li data-i18n-html="mac.4">Relance ton logiciel de musique (Logic, Ableton, FL Studio…). C'est prêt !</li>
+    </ol>
+    <p class="note" data-i18n-html="mac.note">Les plugins sont <b>notarisés par Apple</b> : aucune alerte de sécurité. Logic et GarageBand utilisent la version <b>AU</b> (.component), les autres la version <b>VST3</b>.</p>
+  </div>
+  <div class="panel" id="tab-win">
+    <ol>
+      <li data-i18n-html="win.1">Télécharge l'installateur <b>.exe</b> du plugin et lance-le.</li>
+      <li data-i18n-html="win.2">Windows peut afficher <b>« Windows a protégé votre ordinateur »</b> : clique sur <b>Informations complémentaires</b> → <b>Exécuter quand même</b>.</li>
+      <li data-i18n-html="win.3">Clique sur <b>Suivant</b> jusqu'au bout. Le plugin s'installe tout seul dans <code>C:\Program Files\Common Files\VST3</code>.</li>
+      <li data-i18n-html="win.4">Relance ton logiciel de musique (Ableton, FL Studio, Cubase, Reaper…). C'est prêt !</li>
+    </ol>
+    <p class="note" data-i18n-html="win.note">Pourquoi l'alerte ? L'installateur n'est pas encore signé numériquement (ça coûte une fortune). Le fichier est sain : il vient directement d'ici.</p>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>FAQ</h2>
+  <details><summary data-i18n="faq.q1">C'est vraiment gratuit ?</summary><p data-i18n="faq.a1">Oui. Pas d'abonnement, pas de compte, pas d'e-mail à donner, pas de version « pro » cachée. Tu télécharges, tu produis.</p></details>
+  <details><summary data-i18n="faq.q3">Ça marche sur mon Mac M4 / M5 ?</summary><p data-i18n="faq.a3">Oui : Apple Silicon (M1 à M5) et Mac Intel, à partir de macOS 12.</p></details>
+  <details><summary data-i18n="faq.q4">Et sur Linux ? Sur iPad ?</summary><p data-i18n="faq.a4">Pas pour l'instant. Mac et Windows seulement.</p></details>
+</section>
+
+<footer>
+  <p class="tag big">Benjamin Franklin</p>
+  <p data-i18n="foot.made">Fait avec amour, du café et un peu trop de glitch.</p>
+  <p class="copy">© 2026 Benjamin Franklin</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
