@@ -134,6 +134,7 @@ const mac = !phone && /Macintosh|Mac OS X/i.test(ua);
 
 if (phone) {
   document.getElementById("phone").hidden = false;
+  document.querySelector("[data-t='ot.title']").textContent = fr ? "Les fichiers, pour plus tard :" : "The files, for later:";
   document.getElementById("copy").addEventListener("click", e => {
     const url = "https://benjaminfranklinmusic.com/download/" + (fr ? "?lang=fr" : "");
     const done = () => { e.target.textContent = fr ? "Lien copié ✓" : "Link copied ✓"; };
