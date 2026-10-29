@@ -128,14 +128,14 @@ body.shake{animation:quake .45s}
 
 /* bio */
 .bio{display:grid;grid-template-columns:minmax(260px,440px) 1fr;gap:56px;align-items:center;padding:90px max(20px,8vw);color:#ece6f3;
-  background:radial-gradient(45% 60% at 18% 40%,rgba(255,45,116,.10),transparent 70%),radial-gradient(40% 50% at 90% 80%,rgba(139,61,255,.10),transparent 70%),linear-gradient(160deg,#141218,#1c1a22)}
+  background:radial-gradient(90% 120% at 15% 35%,rgba(255,45,116,.07),transparent 80%),radial-gradient(80% 110% at 95% 85%,rgba(139,61,255,.07),transparent 80%),linear-gradient(180deg,#232227,#1f1e24)}
 .bio b{color:#fff}
 .bio-photo{position:relative;isolation:isolate}
-.bio-photo::before{content:"";position:absolute;z-index:-1;left:50%;top:28%;width:85%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(circle,rgba(255,45,116,.45),rgba(139,61,255,.28) 45%,transparent 70%);filter:blur(30px)}
-.bio-photo img{width:100%;
-  -webkit-mask-image:radial-gradient(ellipse 50% 54% at 50% 46%,#000 60%,transparent 100%);
-  mask-image:radial-gradient(ellipse 50% 54% at 50% 46%,#000 60%,transparent 100%)}
+.bio-photo img{width:100%;filter:brightness(.8);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 34%,#000 66%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 52%,transparent 96%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 34%,#000 66%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 52%,transparent 96%);
+  mask-composite:intersect}
 .sticker{position:absolute;right:2%;top:6%;font-family:"Marker",cursive;font-size:22px;color:var(--green);transform:rotate(8deg);text-shadow:0 0 12px rgba(138,255,43,.35)}
 .sticker::after{content:"↙";display:block;font-family:system-ui,sans-serif;font-size:26px;margin:-2px 0 0 4px}
 .bio h2{font-size:clamp(32px,5vw,52px);color:#fff}
