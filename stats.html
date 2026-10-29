@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Statistiques des téléchargements</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .stats{max-width:900px;margin:0 auto;padding:40px 16px 80px}
+  .stats h1{font-family:"Marker",cursive;font-weight:400;font-size:clamp(34px,6vw,56px);color:var(--pink2);transform:rotate(-2deg);margin-bottom:10px}
+  .state{opacity:.75;font-size:15px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
+  .card{background:#1a1229;border:3px solid #33244f;border-radius:18px;padding:16px 18px}
+  .card .n{font-family:"Marker",cursive;font-size:44px;line-height:1.1}
+  .card.total .n{color:var(--cyan)}
+  .card.Plug-de-fou .n{color:var(--pink)}
+  .card.SlowMo .n{color:var(--violet2)}
+  .card.Boom .n{color:var(--green)}
+  .card small{opacity:.75}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid #33244f}
+  td.r,th.r{text-align:right}
+  .wrap{overflow-x:auto}
+</style>
+</head>
+<body>
+<main class="stats">
+  <h1>Téléchargements</h1>
+  <p class="state" id="state">Chargement…</p>
+  <div class="cards" id="cards"></div>
+  <div class="wrap">
+    <table>
+      <thead><tr><th>Version</th><th>Fichier</th><th class="r">Taille</th><th class="r">Téléchargements</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="state">Note : les deux boutons Mac (Apple Silicon et Intel) mènent au même fichier .dmg, ils sont donc comptés ensemble.</p>
+</main>
+<script src="counts.js"></script>
+<script>
+const fmt = n => n.toLocaleString("fr-FR");
+loadCounts().then(({ data, live }) => {
+  const state = document.getElementById("state");
+  if (!data) { state.textContent = "Impossible de joindre GitHub pour l'instant (limite de 60 requêtes par heure). Réessaie dans quelques minutes."; return; }
+  state.textContent = (live ? "À jour : " : "GitHub ne répond pas, dernière valeur connue : ") + new Date(data.at).toLocaleString("fr-FR");
+  let html = `<div class="card total"><div class="n">${fmt(data.total)}</div><small>au total</small></div>`;
+  for (const [name, p] of Object.entries(data.plugins)) {
+    html += `<div class="card ${name}"><div class="n">${fmt(p.total)}</div>${name.replace(/-/g, " ")}<br><small>Mac ${fmt(p.mac)} · Windows ${fmt(p.win)}</small></div>`;
+  }
+  document.getElementById("cards").innerHTML = html;
+  document.getElementById("rows").innerHTML = data.files
+    .sort((a, b) => b.count - a.count)
+    .map(f => `<tr><td>${f.release}</td><td>${f.name}</td><td class="r">${(f.size / 1e6).toFixed(1).replace(".", ",")} Mo</td><td class="r"><b>${fmt(f.count)}</b></td></tr>`)
+    .join("");
+});
+</script>
+</body>
+</html>

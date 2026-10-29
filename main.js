@@ -25,7 +25,10 @@ const EN = {
   "boom.f2": "Tweakable <b>sub boom</b>: type, tune, length, detune",
   "boom.f3": "Rising or falling <b>swipe</b>, from 1 to 128 bars",
   "boom.f4": "Always in sync with your project's tempo",
-  "dl.mac": "Mac",
+  "free": "100% FREE",
+  "dl.same": "same file",
+  "dl.which": "<b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.",
+  "cnt.txt": "producers have already downloaded a plugin. What about you?",
   "bio.sticker": "That's him!",
   "bio.title": "Who is",
   "bio.nope": "(Not the guy on the 100-dollar bill. The other one.)",
@@ -64,10 +67,28 @@ function setLang(lang) {
   });
   document.documentElement.lang = lang;
   document.getElementById("lang").textContent = lang === "en" ? "FR" : "EN";
+  renderCounts();
   try { localStorage.setItem("bf-lang", lang); } catch (e) {}
 }
 
 let lang = "fr";
+let counts = null;
+
+// Affiche les compteurs ; sans aucune donnée (API en panne et rien en mémoire), on les cache
+function renderCounts() {
+  const box = document.getElementById("counter");
+  box.hidden = !counts || counts.total === 0;
+  if (!counts) return;
+  const en = document.documentElement.lang === "en";
+  const fmt = n => n.toLocaleString(en ? "en-US" : "fr-FR");
+  document.getElementById("total").textContent = fmt(counts.total);
+  document.querySelectorAll("[data-count]").forEach(el => {
+    const p = counts.plugins[el.dataset.count];
+    if (!p) { el.textContent = ""; return; }
+    if (p.total === 0) { el.textContent = en ? "Be the first to download it!" : "Sois le premier à le télécharger !"; return; }
+    el.innerHTML = `<b>${fmt(p.total)}</b> ${en ? (p.total > 1 ? "downloads" : "download") : (p.total > 1 ? "téléchargements" : "téléchargement")} · Mac ${fmt(p.mac)} · Windows ${fmt(p.win)}`;
+  });
+}
 try {
   lang = localStorage.getItem("bf-lang") || "fr";
 } catch (e) {}
@@ -98,3 +119,8 @@ document.getElementById("boombtn").addEventListener("click", () => {
   setTimeout(() => t.remove(), 900);
   if (navigator.vibrate) navigator.vibrate(120);
 });
+
+// compteur de téléchargements : la dernière valeur connue d'abord, puis la valeur à jour
+try { counts = JSON.parse(localStorage.getItem("bf-counts")); } catch (e) {}
+renderCounts();
+loadCounts().then(r => { if (r.data) { counts = r.data; renderCounts(); } });
