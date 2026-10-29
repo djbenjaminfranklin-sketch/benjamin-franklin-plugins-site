@@ -69,6 +69,7 @@ const FR = {
   "gate.skip": "Déjà abonné ? Débloquer",
   "gate.thanks": "Débloqué ! Merci pour le follow ♥",
   "gate.note": "Verrouillé : abonne-toi sur Instagram pour débloquer (un clic, tout en haut)",
+  "hero.free": "GRATUIT",
   "faq.q3": "Ça marche sur mon Mac M4 / M5 ?",
   "faq.a3": "Oui : Apple Silicon (M1 à M5) et Mac Intel, à partir de macOS 12.",
   "faq.q4": "Et sur Linux ? Sur iPad ?",
@@ -105,6 +106,7 @@ function setLang(lang) {
   });
   document.querySelectorAll(".sz").forEach(n => { n.textContent = n.dataset[lang]; });
   document.documentElement.lang = lang;
+  document.title = lang === "fr" ? "Plugins gratuits de Benjamin Franklin : Plug de fou, SlowMo, Boom" : "Free plugins by Benjamin Franklin: Plug de fou, SlowMo, Boom";
   document.querySelectorAll(".lang").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
   renderCounts();
 }
