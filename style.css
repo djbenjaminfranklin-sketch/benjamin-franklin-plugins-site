@@ -261,7 +261,7 @@ footer p{margin:8px 0}
 
 /* PUMP : cyan, visuel à gauche comme SlowMo */
 .chip.cyan{background:var(--cyan)}
-.p-pump{grid-template-columns:1.1fr 1fr;background:radial-gradient(70% 80% at 20% 50%,rgba(62,230,208,.16),transparent),#0c0a12}
+.p-pump{grid-template-columns:1.45fr 1fr;padding-top:110px;padding-bottom:110px;background:radial-gradient(70% 80% at 20% 50%,rgba(62,230,208,.16),transparent),#0c0a12}
 .p-pump .p-title{color:var(--cyan);text-shadow:3px 3px 0 #0b3a35}
 .p-pump .num,.p-pump .p-tagline,.p-pump .feats li::before{color:var(--cyan)}
 .p-pump .ptype{color:var(--cyan)}
@@ -269,3 +269,6 @@ footer p{margin:8px 0}
 .p-pump .p-shot>img{box-shadow:0 0 0 3px var(--cyan),12px 12px 0 var(--cyan),0 0 60px rgba(62,230,208,.4)}
 .p-pump .btn{background:var(--cyan);color:var(--ink);box-shadow:5px 5px 0 #1fa898}
 .p-pump .btn.ghost{background:transparent;color:var(--cyan);border-color:var(--cyan);box-shadow:none}
+.p-pump .p-title{font-size:clamp(64px,9vw,128px)}
+.p-pump .p-shot>img{width:100%}
+@media (max-width:860px){.p-pump{grid-template-columns:1fr;padding:64px 16px}}

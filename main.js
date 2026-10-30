@@ -28,6 +28,7 @@ const FR = {
   "boom.f1": "Un gros bouton <b>BOOM!</b> (oui, on appuie dessus)",
   "boom.f2": "<b>Sub boom</b> réglable : type, hauteur, longueur, désaccord",
   "boom.f3": "<b>Swipe</b> montant ou descendant, de 1 à 128 mesures",
+  "new": "Nouveau",
   "pump.tag": "Le sidechain qui suit ton vrai kick. Sans routage.",
   "pump.desc": "Mets PUMP sur ton kick en mode <b>KICK</b>, et sur ta basse, tes synthés ou tes nappes en mode <b>LINK</b> : ils pompent sur ton vrai kick (sa place, sa longueur, ses ghost notes) <b>sans aucun routage de sidechain</b>. Chaque instrument pompe à sa façon, et le gorille rose gonfle les biceps à chaque kick.",
   "pump.f1": "<b>LINK</b> : chaque PUMP suit le kick tout seul, zéro routage",

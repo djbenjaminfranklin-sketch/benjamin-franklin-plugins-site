@@ -36,10 +36,10 @@
   </div>
   <p class="hero-sub" data-i18n-html="hero.sub">4 <b>free</b> audio plugins. No subscription. No account. Just sound that goes completely nuts (but in time).</p>
   <div class="chips">
+    <a class="chip cyan" href="#pump">PUMP</a>
     <a class="chip pink" href="#plugdefou">Plug de fou</a>
     <a class="chip violet" href="#slowmo">SlowMo</a>
     <a class="chip green" href="#boom">Boom</a>
-    <a class="chip cyan" href="#pump">PUMP</a>
   </div>
   <p class="compat" data-i18n="hero.compat">VST3 + AU on Mac (Apple Silicon M1 → M5 and Intel, macOS 12+) · VST3 on Windows 10/11 64-bit</p>
   <div class="mascots" aria-hidden="true">
@@ -83,6 +83,34 @@
 </section>
 
 <main id="plugins">
+
+  <!-- PUMP -->
+  <section id="pump" class="plugin p-pump">
+    <figure class="p-shot"><img src="img/shot-pump.webp" alt="PUMP" width="1000" height="621" loading="lazy"></figure>
+    <div class="p-text">
+      <p class="num"><span data-i18n="new">New</span> · #04</p>
+      <h2 class="p-title">PUMP!</h2>
+      <p class="p-tagline" data-i18n="pump.tag">The sidechain that follows your real kick. No routing.</p>
+      <p class="ptype"><span class="pill kind" data-i18n="type.fx">Effect</span><span class="pill">VST3</span><span class="pill">AU</span><span class="ptype-hint" data-i18n="type.fxhint">Insert it on an audio track</span></p>
+      <p data-i18n-html="pump.desc">Put PUMP on your kick in <b>KICK</b> mode, and on your bass, synths or pads in <b>LINK</b> mode: they pump on your real kick (its position, its length, its ghost notes) <b>without any sidechain routing</b>. Each instrument pumps its own way, and the pink gorilla flexes on every kick.</p>
+      <ul class="feats">
+        <li data-i18n-html="pump.f1"><b>LINK</b>: every PUMP follows the kick by itself, zero routing</li>
+        <li data-i18n-html="pump.f2"><b>Instrument profiles</b>: BASS, SYNTH, PIANO, VOCAL, PAD, PERC, or <b>AUTO</b></li>
+        <li data-i18n-html="pump.f3">A big <b>PUMP</b> knob from 0 to 100 % + style presets (House, Tech House, Techno…)</li>
+        <li data-i18n-html="pump.f4">No kick? Trigger it from <b>AUDIO</b>, <b>MIDI</b> or <b>TEMPO</b></li>
+      </ul>
+      <div class="dl-box">
+        <div class="dl-head"><span class="free" data-i18n="free">100% FREE</span><span class="count" data-count="PUMP"></span></div>
+        <div class="dl">
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="21 Mo" data-en="21 MB">21 MB</span></small></a>
+          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="21 Mo" data-en="21 MB">21 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
+          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="6,8 Mo" data-en="6.8 MB">6.8 MB</span></small></a>
+        </div>
+        <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
+        <button class="lock-note" data-i18n="gate.note">Locked: follow on Instagram to unlock (one click, up top)</button>
+      </div>
+    </div>
+  </section>
 
   <!-- PLUG DE FOU -->
   <section id="plugdefou" class="plugin p-fou">
@@ -172,33 +200,6 @@
     </figure>
   </section>
 
-  <!-- PUMP -->
-  <section id="pump" class="plugin p-pump">
-    <figure class="p-shot"><img src="img/shot-pump.webp" alt="PUMP" width="1000" height="621" loading="lazy"></figure>
-    <div class="p-text">
-      <p class="num">#04</p>
-      <h2 class="p-title">PUMP!</h2>
-      <p class="p-tagline" data-i18n="pump.tag">The sidechain that follows your real kick. No routing.</p>
-      <p class="ptype"><span class="pill kind" data-i18n="type.fx">Effect</span><span class="pill">VST3</span><span class="pill">AU</span><span class="ptype-hint" data-i18n="type.fxhint">Insert it on an audio track</span></p>
-      <p data-i18n-html="pump.desc">Put PUMP on your kick in <b>KICK</b> mode, and on your bass, synths or pads in <b>LINK</b> mode: they pump on your real kick (its position, its length, its ghost notes) <b>without any sidechain routing</b>. Each instrument pumps its own way, and the pink gorilla flexes on every kick.</p>
-      <ul class="feats">
-        <li data-i18n-html="pump.f1"><b>LINK</b>: every PUMP follows the kick by itself, zero routing</li>
-        <li data-i18n-html="pump.f2"><b>Instrument profiles</b>: BASS, SYNTH, PIANO, VOCAL, PAD, PERC, or <b>AUTO</b></li>
-        <li data-i18n-html="pump.f3">A big <b>PUMP</b> knob from 0 to 100 % + style presets (House, Tech House, Techno…)</li>
-        <li data-i18n-html="pump.f4">No kick? Trigger it from <b>AUDIO</b>, <b>MIDI</b> or <b>TEMPO</b></li>
-      </ul>
-      <div class="dl-box">
-        <div class="dl-head"><span class="free" data-i18n="free">100% FREE</span><span class="count" data-count="PUMP"></span></div>
-        <div class="dl">
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Mac.dmg"><b>Mac Apple Silicon</b><small>M1, M2, M3, M4, M5 · .dmg · <span class="sz" data-fr="21 Mo" data-en="21 MB">21 MB</span></small></a>
-          <a class="btn" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Mac.dmg"><b>Mac Intel</b><small>.dmg · <span class="sz" data-fr="21 Mo" data-en="21 MB">21 MB</span> · <span data-i18n="dl.same">same file</span></small></a>
-          <a class="btn ghost" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/PUMP-Windows.exe"><b>Windows 10 / 11</b><small>64 bits · .exe · <span class="sz" data-fr="6,8 Mo" data-en="6.8 MB">6.8 MB</span></small></a>
-        </div>
-        <p class="whichmac" data-i18n-html="dl.which"><b>Which Mac do I have?</b> Apple menu &gt; About This Mac: “Chip” = Apple Silicon, “Processor … Intel” = Intel.</p>
-        <button class="lock-note" data-i18n="gate.note">Locked: follow on Instagram to unlock (one click, up top)</button>
-      </div>
-    </div>
-  </section>
 </main>
 
 <section id="bio" class="bio">
