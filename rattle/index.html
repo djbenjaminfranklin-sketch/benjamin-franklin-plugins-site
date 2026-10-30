@@ -32,8 +32,9 @@ video { display: block; width: 100%; max-width: 340px; margin: 0 auto 22px; bord
 form { display: flex; flex-direction: column; gap: 10px; max-width: 420px; margin: 0 auto; }
 input[type=email] { width: 100%; padding: 16px 18px; border-radius: 40px; border: 2px solid #3a3546; background: #0c0a12; color: var(--txt); font-size: 17px; }
 input[type=email]:focus { outline: none; border-color: var(--pink); }
-button.go { background: var(--pink); color: #fff; border: 0; font-weight: 800; font-size: 17px; padding: 16px 20px; border-radius: 40px; cursor: pointer; }
-button.go:disabled { opacity: .6; }
+.go { background: var(--pink); color: #fff; border: 0; font-weight: 800; font-size: 17px; padding: 16px 20px; border-radius: 40px; cursor: pointer; }
+.go:disabled { opacity: .6; }
+a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center; text-decoration: none; font-size: 19px; }
 .hp { position: absolute; left: -9999px; }
 .msg { text-align: center; font-weight: 700; margin: 10px 0 0; min-height: 1.5em; }
 .msg.ok { color: var(--green); }
@@ -62,6 +63,13 @@ button.go:disabled { opacity: .6; }
   <p class="price" data-t="price">COMING SOON · €14.90</p>
 
   <video src="/rattle/teaser.mp4" poster="/rattle/poster.jpg" controls playsinline preload="metadata"></video>
+
+  <div class="card" id="buy" hidden>
+    <h2 data-t="bh2">Get RATTLE!</h2>
+    <p data-t="bsub">One payment, yours forever. Mac & Windows, VST3 / AU.</p>
+    <a class="go buy" href="https://buy.stripe.com/dRmeVcajc6hz4UX1Wy2Fa00" data-t="bbtn">Buy now · €14.90</a>
+    <p class="small" data-t="blegal">Secure payment by Stripe. Have a launch code? Enter it at checkout.</p>
+  </div>
 
   <div class="card" id="join">
     <h2 data-t="h2">Join the waitlist</h2>
@@ -100,6 +108,8 @@ const T = { fr: {
   f3: 'Accordé sur ton morceau', f3d: 'Il lit la note de chaque son et peut l\'accorder sur ta tonalité, un pad ou tous d\'un coup.',
   f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac et Windows, VST3 / AU.',
   more: 'En attendant, prends mes plugins gratuits :',
+  bh2: 'Prends RATTLE!', bsub: 'Un seul paiement, à toi pour toujours. Mac et Windows, VST3 / AU.',
+  bbtn: 'Acheter · 14,90 €', blegal: 'Paiement sécurisé par Stripe. Un code de lancement ? Entre-le au paiement.', buyprice: 'DISPONIBLE · 14,90 €',
   ok: 'C\'est réservé ! On te prévient à la sortie.', bad: 'Cet e-mail ne semble pas valide.', fail: 'Petit souci, réessaie dans un instant.'
 }, en: { ok: 'You\'re in! We\'ll let you know when it\'s out.', bad: 'That email doesn\'t look right.', fail: 'Something went wrong, try again in a moment.' } };
 const EN = {};
@@ -115,6 +125,16 @@ function apply(l) {
   document.getElementById('email').placeholder = d.ph;
   document.getElementById('lang').textContent = lang === 'fr' ? 'EN' : 'FR';
   try { localStorage.setItem('bf-lang', lang); } catch (e) {}
+}
+// Vente : passer SALE_OPEN à true le jour de la sortie (et réactiver le lien Stripe). ?preview=buy pour tester avant.
+const SALE_OPEN = false;
+let preview = false;
+try { preview = new URLSearchParams(location.search).get('preview') === 'buy'; } catch (e) {}
+if (SALE_OPEN || preview) {
+  document.getElementById('buy').hidden = false;
+  document.getElementById('join').hidden = true;
+  const p = document.querySelector('[data-t=price]');
+  p.dataset.t = 'buyprice'; EN.buyprice = 'AVAILABLE NOW · €14.90';
 }
 apply(lang);
 document.getElementById('lang').onclick = () => apply(lang === 'fr' ? 'en' : 'fr');

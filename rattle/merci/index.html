@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you – RATTLE!</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0a12">
+<link rel="icon" href="/rattle/skull.webp">
+<style>
+@font-face { font-family: "Marker"; src: url("/fonts/PermanentMarker-Regular.ttf") format("truetype"); font-display: swap; }
+:root { --bg: #0c0a12; --card: #1a1722; --txt: #eeeaf2; --mute: #a49db0; --pink: #ff2d74; --green: #8aff2b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(circle at 50% 0, #2a1236, var(--bg) 60%); background-color: var(--bg); color: var(--txt); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.5; min-height: 100vh; }
+.wrap { max-width: 560px; margin: 0 auto; padding: 32px 16px 48px; text-align: center; }
+.logo { width: 100%; max-width: 420px; }
+.card { background: var(--card); border-radius: 20px; padding: 26px 20px; margin: 18px 0; }
+h1 { font-family: "Marker", cursive; font-weight: 400; font-size: 32px; color: var(--green); margin: 0 0 10px; }
+p { color: var(--mute); margin: 0 0 12px; }
+p b { color: var(--txt); }
+.skull { width: 150px; }
+a { color: #c77dff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="logo" src="/rattle/logo.webp" alt="RATTLE!">
+  <div class="card">
+    <h1 data-t="h1">You're in!</h1>
+    <p data-t="p1"><b>Thank you for buying RATTLE!</b> Your receipt is on its way by email.</p>
+    <p data-t="p2">Your download link is sent to the same email address. Can't find it? Check your spam folder, or write to <a href="mailto:contact@benjaminfranklinmusic.com">contact@benjaminfranklinmusic.com</a>.</p>
+  </div>
+  <img class="skull" src="/rattle/skull.webp" alt="">
+</div>
+<script>
+let fr = false;
+try { const q = new URLSearchParams(location.search).get('lang'); fr = q ? q === 'fr' : ((localStorage.getItem('bf-lang') || navigator.language || '').startsWith('fr')); } catch (e) {}
+if (fr) {
+  document.documentElement.lang = 'fr';
+  const T = {
+    h1: 'C\'est à toi !',
+    p1: '<b>Merci d\'avoir acheté RATTLE!</b> Ton reçu arrive par e-mail.',
+    p2: 'Ton lien de téléchargement est envoyé à la même adresse. Introuvable ? Regarde dans les indésirables, ou écris à <a href="mailto:contact@benjaminfranklinmusic.com">contact@benjaminfranklinmusic.com</a>.'
+  };
+  document.querySelectorAll('[data-t]').forEach(e => e.innerHTML = T[e.dataset.t]);
+}
+</script>
+</body>
+</html>
