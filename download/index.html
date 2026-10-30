@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download: 3 free plugins by Benjamin Franklin</title>
-<meta name="description" content="Your free plugins by Benjamin Franklin: Plug de fou, SlowMo and Boom. Mac and Windows.">
+<title>Download: 4 free plugins by Benjamin Franklin</title>
+<meta name="description" content="Your free plugins by Benjamin Franklin: Plug de fou, SlowMo, Boom and PUMP. Mac and Windows.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0c0a12">
 <link rel="icon" href="/img/boombtn.webp">
@@ -43,7 +43,7 @@ a.lnk { color: var(--violet); }
   <section class="card" id="desk" hidden>
     <div class="ok">✓</div>
     <h1 data-t="dl.title">Your download has started</h1>
-    <p data-t="dl.sub" data-html>Plug de fou + SlowMo + Boom, all in one installer for <b id="osname">your computer</b>.</p>
+    <p data-t="dl.sub" data-html>Plug de fou + SlowMo + Boom + PUMP, all in one installer for <b id="osname">your computer</b>.</p>
     <p class="small"><span data-t="dl.again">Nothing happened?</span> <a class="lnk" id="again" href="#" data-t="dl.click">Click here</a></p>
   </section>
 
@@ -80,8 +80,8 @@ a.lnk { color: var(--violet); }
 
   <section class="card" id="others">
     <p data-t="ot.title" class="small">Other computer?</p>
-    <a class="btn ghost" id="b-mac" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.1/Benjamin-Franklin-Plugins-Mac.dmg">Mac<small>Apple Silicon &amp; Intel · .dmg · 28 MB</small></a>
-    <a class="btn ghost" id="b-win" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.1.1/Benjamin-Franklin-Plugins-Windows.exe">Windows 10 / 11<small>64-bit · .exe · 9 MB</small></a>
+    <a class="btn ghost" id="b-mac" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/Benjamin-Franklin-Plugins-Mac.dmg">Mac<small>Apple Silicon &amp; Intel · .dmg · 42 MB</small></a>
+    <a class="btn ghost" id="b-win" href="https://github.com/djbenjaminfranklin-sketch/benjamin-franklin-plugins-site/releases/download/v1.2.0/Benjamin-Franklin-Plugins-Windows.exe">Windows 10 / 11<small>64-bit · .exe · 12 MB</small></a>
     <p class="small" style="margin-top:16px"><a class="lnk" href="/" data-t="ot.site">See the plugins on the website</a></p>
   </section>
 </div>
@@ -93,7 +93,7 @@ const WIN = document.getElementById("b-win").href;
 
 const FR = {
   "dl.title": "Ton téléchargement a commencé",
-  "dl.sub": "Plug de fou + SlowMo + Boom, dans un seul installateur pour <b id=\"osname\">ton ordinateur</b>.",
+  "dl.sub": "Plug de fou + SlowMo + Boom + PUMP, dans un seul installateur pour <b id=\"osname\">ton ordinateur</b>.",
   "dl.again": "Rien ne s'est passé ?",
   "dl.click": "Clique ici",
   "ph.title": "Ouvre ce lien sur ton ordinateur",
@@ -115,7 +115,7 @@ const FR = {
 const fr = new URLSearchParams(location.search).get("lang") === "fr";
 if (fr) {
   document.documentElement.lang = "fr";
-  document.title = "Téléchargement : 3 plugins gratuits de Benjamin Franklin";
+  document.title = "Téléchargement : 4 plugins gratuits de Benjamin Franklin";
   document.querySelectorAll("[data-t]").forEach(n => {
     const s = FR[n.dataset.t];
     if (s) { if (n.hasAttribute("data-html")) n.innerHTML = s; else n.textContent = s; }

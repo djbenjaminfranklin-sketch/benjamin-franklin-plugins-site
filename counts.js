@@ -2,7 +2,7 @@
 // En cas d'échec de l'API (limite de 60 requêtes/heure), on reprend la dernière valeur connue.
 const REPO = "djbenjaminfranklin-sketch/benjamin-franklin-plugins-site";
 const CACHE_KEY = "bf-counts";
-const PLUGINS = { plugdefou: "Plug-de-fou", slowmo: "SlowMo", boom: "Boom" };
+const PLUGINS = { plugdefou: "Plug-de-fou", slowmo: "SlowMo", boom: "Boom", pump: "PUMP" };
 
 function pluginOf(name) {
   const flat = name.toLowerCase().replace(/[^a-z]/g, "");
@@ -12,6 +12,11 @@ function pluginOf(name) {
 
 function isPack(name) {
   return name.toLowerCase().replace(/[^a-z]/g, "").startsWith("benjaminfranklinplugins");
+}
+
+function packHasPump(tag) {
+  const v = (tag || "").replace(/^v/, "").split(".").map(Number);
+  return v[0] > 1 || (v[0] === 1 && (v[1] || 0) >= 2);
 }
 
 function platformOf(name) {
@@ -28,8 +33,8 @@ function summarize(releases) {
       out.total += a.download_count;
       out.files.push({ release: r.tag_name, name: a.name, count: a.download_count, size: a.size });
       const plat = platformOf(a.name);
-      // l'installateur groupé contient les 3 plugins : +1 pour chacun
-      const targets = isPack(a.name) ? Object.values(PLUGINS) : [pluginOf(a.name)].filter(Boolean);
+      // l'installateur groupé compte +1 pour chaque plugin qu'il contient (PUMP seulement à partir de v1.2.0)
+      const targets = isPack(a.name) ? Object.values(PLUGINS).filter(p => p !== "PUMP" || packHasPump(r.tag_name)) : [pluginOf(a.name)].filter(Boolean);
       if (isPack(a.name)) {
         out.pack.total += a.download_count;
         if (plat !== "other") out.pack[plat] += a.download_count;
