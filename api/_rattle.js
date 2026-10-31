@@ -14,6 +14,20 @@ function tokenIsValid(sessionId, token) {
   return crypto.timingSafeEqual(Buffer.from(downloadToken(sessionId)), Buffer.from(token));
 }
 
+// Clé de licence = HMAC(e-mail de l'achat) en base 32 : RTL-XXXXX-XXXXX-XXXXX-XXXXX
+function licenceKey(email) {
+  const h = crypto.createHmac('sha256', process.env.RATTLE_LICENCE_SECRET).update(`rattle-licence:${String(email).trim().toLowerCase()}`).digest();
+  const abc = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';   // sans I, O, 0, 1 (faciles à confondre)
+  let bits = 0, n = 0, out = '';
+  for (const b of h) { n = (n << 8) | b; bits += 8; while (bits >= 5 && out.length < 20) { bits -= 5; out += abc[(n >> bits) & 31]; } }
+  return 'RTL-' + out.match(/.{5}/g).join('-');
+}
+
+function licenceKeyIsValid(email, key) {
+  const a = Buffer.from(licenceKey(email)), b = Buffer.from(String(key || '').trim().toUpperCase());
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
 function downloadUrl(sessionId) {
   return `${SITE}/api/rattle-download?s=${encodeURIComponent(sessionId)}&t=${downloadToken(sessionId)}`;
 }
@@ -22,7 +36,7 @@ function mailjetAuth() {
   return 'Basic ' + Buffer.from(`${process.env.MJ_PUBLIC}:${process.env.MJ_SECRET}`).toString('base64');
 }
 
-function emailHtml(link) {
+function emailHtml(link, key) {
   const btn = (href, label) => `<a href="${href}" style="display:inline-block;background:#ff2d74;color:#fff;text-decoration:none;font-weight:800;font-size:17px;padding:15px 28px;border-radius:40px">${label}</a>`;
   return `<!doctype html><html><body style="margin:0;background:#f4f1f7;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#1a1722">
 <div style="max-width:560px;margin:0 auto;padding:28px 16px">
@@ -31,12 +45,16 @@ function emailHtml(link) {
 <h1 style="color:#8aff2b;font-size:26px;margin:14px 0 8px">You're in!</h1>
 <p style="color:#d9d3e2;font-size:16px;line-height:1.5;margin:0 0 20px">Thank you for buying RATTLE!. Your download (Mac & Windows) is one click away:</p>
 ${btn(link, 'Download RATTLE!')}
+<p style="color:#d9d3e2;font-size:15px;margin:22px 0 6px">Your licence key (2 computers):</p>
+<p style="font-family:Menlo,Consolas,monospace;font-size:19px;font-weight:800;color:#8aff2b;letter-spacing:1px;margin:0">${key}</p>
 <p style="color:#a49db0;font-size:13px;line-height:1.5;margin:20px 0 0">Keep this email: the link stays valid if you need to install again.</p>
 </div>
 <div style="background:#fff;border-radius:20px;padding:22px;margin-top:14px;text-align:center">
 <h2 style="font-size:20px;margin:0 0 8px">C'est à toi !</h2>
 <p style="font-size:15px;line-height:1.5;margin:0 0 18px;color:#4a4458">Merci d'avoir acheté RATTLE!. Ton téléchargement (Mac et Windows) est à un clic :</p>
 ${btn(link, 'Télécharger RATTLE!')}
+<p style="font-size:15px;margin:22px 0 6px;color:#4a4458">Ta clé de licence (2 ordinateurs) :</p>
+<p style="font-family:Menlo,Consolas,monospace;font-size:19px;font-weight:800;color:#ff2d74;letter-spacing:1px;margin:0">${key}</p>
 <p style="color:#7a7388;font-size:13px;line-height:1.5;margin:18px 0 0">Garde cet e-mail : le lien reste valable si tu dois réinstaller.</p>
 </div>
 <p style="text-align:center;color:#7a7388;font-size:12px;margin:18px 0 0">Benjamin Franklin · <a href="mailto:contact@benjaminfranklinmusic.com" style="color:#7a7388">contact@benjaminfranklinmusic.com</a></p>
@@ -45,6 +63,7 @@ ${btn(link, 'Télécharger RATTLE!')}
 
 async function sendDownloadEmail(email, name, sessionId) {
   const link = downloadUrl(sessionId);
+  const key = licenceKey(email);
   const r = await fetch('https://api.mailjet.com/v3.1/send', {
     method: 'POST',
     headers: { Authorization: mailjetAuth(), 'Content-Type': 'application/json' },
@@ -53,8 +72,8 @@ async function sendDownloadEmail(email, name, sessionId) {
       To: [{ Email: email, Name: name || email }],
       ReplyTo: { Email: 'contact@benjaminfranklinmusic.com', Name: 'Benjamin Franklin' },
       Subject: 'Your RATTLE! download / Ton téléchargement RATTLE!',
-      TextPart: `Thank you for buying RATTLE! Download it here: ${link}\n\nMerci d'avoir acheté RATTLE! Télécharge-le ici : ${link}\n\nBenjamin Franklin`,
-      HTMLPart: emailHtml(link),
+      TextPart: `Thank you for buying RATTLE! Download it here: ${link}\nYour licence key (2 computers): ${key}\n\nMerci d'avoir acheté RATTLE! Télécharge-le ici : ${link}\nTa clé de licence (2 ordinateurs) : ${key}\n\nBenjamin Franklin`,
+      HTMLPart: emailHtml(link, key),
       CustomID: `rattle-${sessionId}`,
     }] }),
   });
@@ -67,4 +86,4 @@ async function sendDownloadEmail(email, name, sessionId) {
   }).catch(() => {});
 }
 
-module.exports = { tokenIsValid, sendDownloadEmail, downloadUrl };
+module.exports = { tokenIsValid, sendDownloadEmail, downloadUrl, licenceKey, licenceKeyIsValid, mailjetAuth };
