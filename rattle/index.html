@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RATTLE! by Benjamin Franklin: the AI drum machine</title>
-<meta name="description" content="Capture the groove of your favorite track. RATTLE! finds every drum hit in any song, names it, and plays it with your own sounds. Coming soon, €14.90.">
+<meta name="description" content="Capture the groove of your favorite track. RATTLE! finds every drum hit in any song, names it, and plays it with your own sounds. Coming soon: €39, launch price €24.90.">
 <meta property="og:title" content="RATTLE! – the AI drum machine">
-<meta property="og:description" content="Capture the groove of your favorite track. Coming soon, €14.90. Join the waitlist.">
+<meta property="og:description" content="Capture the groove of your favorite track. Coming soon: €39, launch price €24.90. Join the waitlist.">
 <meta property="og:image" content="https://benjaminfranklinmusic.com/rattle/poster.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0c0a12">
@@ -60,14 +60,14 @@ a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center;
   <img class="logo" src="/rattle/logo.webp" alt="RATTLE!">
   <h1 data-t="h1">Capture the groove of <em>your favorite track</em></h1>
   <p class="lead" data-t="lead">Drop in any song. RATTLE! finds every drum hit, names it, and plays it back with your own sounds, in time with your DAW.</p>
-  <p class="price" data-t="price">COMING SOON · €14.90</p>
+  <p class="price" data-t="price">COMING SOON · <s>€39</s> €24.90 at launch</p>
 
   <video src="/rattle/teaser.mp4" poster="/rattle/poster.jpg" controls playsinline preload="metadata"></video>
 
   <div class="card" id="buy" hidden>
     <h2 data-t="bh2">Get RATTLE!</h2>
-    <p data-t="bsub">One payment, yours forever. Mac & Windows, VST3 / AU.</p>
-    <a class="go buy" href="https://buy.stripe.com/dRmeVcajc6hz4UX1Wy2Fa00" data-t="bbtn">Buy now · €14.90</a>
+    <p data-t="bsub">One payment, yours forever. Mac, VST3 / AU (Windows coming soon).</p>
+    <a class="go buy" href="https://buy.stripe.com/9B65kC2QKaxPdrtbx82Fa01?prefilled_promo_code=LAUNCH" data-t="bbtn">Buy now · <s>€39</s> €24.90</a>
     <p class="small" data-t="blegal">Secure payment by Stripe. Have a launch code? Enter it at checkout.</p>
   </div>
 
@@ -88,7 +88,7 @@ a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center;
       <li><b data-t="f1">Every hit, found and named</b><span data-t="f1d">Kick, snare, clap, hats, toms, bongos, congas, shakers… detected by our own AI.</span></li>
       <li><b data-t="f2">Your sounds, not a preset bank</b><span data-t="f2d">Drop your own samples on each pad. The groove stays, the sound is yours.</span></li>
       <li><b data-t="f3">In tune with your track</b><span data-t="f3d">It reads the note of each sound and can tune it to your key, one pad or all at once.</span></li>
-      <li><b data-t="f4">It plays, or drag the MIDI</b><span data-t="f4d">Synced to your DAW. Or drag the pattern out as MIDI. Mac & Windows, VST3 / AU.</span></li>
+      <li><b data-t="f4">It plays, or drag the MIDI</b><span data-t="f4d">Synced to your DAW. Or drag the pattern out as MIDI. Mac, VST3 / AU (Windows coming soon).</span></li>
     </ul>
     <img class="skull" src="/rattle/skull.webp" alt="">
   </div>
@@ -99,17 +99,17 @@ a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center;
 const T = { fr: {
   h1: 'Capture le groove de <em>ton morceau préféré</em>',
   lead: 'Glisse n\'importe quel morceau. RATTLE! trouve chaque coup de batterie, le nomme et le rejoue avec tes propres sons, calé sur ton DAW.',
-  price: 'BIENTÔT · 14,90 €', h2: 'Réserve ta place',
+  price: 'BIENTÔT · <s>39 €</s> 24,90 € au lancement', h2: 'Réserve ta place',
   sub: 'Sois le premier prévenu à la sortie, avec une remise de lancement.',
   btn: 'Je réserve', ph: 'ton@email.com',
   legal: 'On t\'écrit seulement pour RATTLE!. Désinscription en un clic.',
   f1: 'Chaque coup, trouvé et nommé', f1d: 'Kick, caisse claire, clap, charleys, toms, bongos, congas, shakers… repérés par notre propre IA.',
   f2: 'Tes sons, pas une banque toute faite', f2d: 'Pose tes propres samples sur chaque pad. Le groove reste, le son est à toi.',
   f3: 'Accordé sur ton morceau', f3d: 'Il lit la note de chaque son et peut l\'accorder sur ta tonalité, un pad ou tous d\'un coup.',
-  f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac et Windows, VST3 / AU.',
+  f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac, VST3 / AU (Windows bientôt).',
   more: 'En attendant, prends mes plugins gratuits :',
-  bh2: 'Prends RATTLE!', bsub: 'Un seul paiement, à toi pour toujours. Mac et Windows, VST3 / AU.',
-  bbtn: 'Acheter · 14,90 €', blegal: 'Paiement sécurisé par Stripe. Un code de lancement ? Entre-le au paiement.', buyprice: 'DISPONIBLE · 14,90 €',
+  bh2: 'Prends RATTLE!', bsub: 'Un seul paiement, à toi pour toujours. Mac, VST3 / AU (Windows bientôt).',
+  bbtn: 'Acheter · <s>39 €</s> 24,90 €', blegal: 'Paiement sécurisé par Stripe. Un code de lancement ? Entre-le au paiement.', buyprice: 'DISPONIBLE · <s>39 €</s> 24,90 €',
   ok: 'C\'est réservé ! On te prévient à la sortie.', bad: 'Cet e-mail ne semble pas valide.', fail: 'Petit souci, réessaie dans un instant.'
 }, en: { ok: 'You\'re in! We\'ll let you know when it\'s out.', bad: 'That email doesn\'t look right.', fail: 'Something went wrong, try again in a moment.' } };
 const EN = {};
@@ -134,7 +134,7 @@ if (SALE_OPEN || preview) {
   document.getElementById('buy').hidden = false;
   document.getElementById('join').hidden = true;
   const p = document.querySelector('[data-t=price]');
-  p.dataset.t = 'buyprice'; EN.buyprice = 'AVAILABLE NOW · €14.90';
+  p.dataset.t = 'buyprice'; EN.buyprice = 'AVAILABLE NOW · <s>€39</s> €24.90';
 }
 apply(lang);
 document.getElementById('lang').onclick = () => apply(lang === 'fr' ? 'en' : 'fr');
