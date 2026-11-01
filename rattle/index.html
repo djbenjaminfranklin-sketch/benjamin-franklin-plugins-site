@@ -25,6 +25,7 @@ h1 { font-size: 30px; line-height: 1.15; margin: 0 0 8px; text-align: center; }
 h1 em { font-style: normal; color: var(--green); }
 .lead { text-align: center; color: var(--mute); margin: 0 0 20px; }
 .price { text-align: center; font-weight: 900; letter-spacing: .06em; color: var(--green); margin: 0 0 18px; }
+.shot { display: block; width: 100%; margin: 0 auto 22px; border-radius: 16px; border: 3px solid #ff2fa0; box-shadow: 0 20px 60px #000a, 0 0 40px #ff2d7433; }
 video { display: block; width: 100%; max-width: 340px; margin: 0 auto 22px; border-radius: 20px; box-shadow: 0 20px 60px #000a, 0 0 40px #ff2d7433; background: #000; }
 .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin: 0 0 18px; }
 .card h2 { font-family: "Marker", cursive; font-weight: 400; font-size: 26px; margin: 0 0 6px; text-align: center; color: #fff; }
@@ -71,6 +72,8 @@ a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center;
     <p class="small" data-t="blegal">Secure payment by Stripe. Have a launch code? Enter it at checkout.</p>
   </div>
 
+  <img class="shot" src="/rattle/rattle-plugin.jpg?v=1" alt="RATTLE! : la batterie du morceau trouvée et rejouée, carré par carré" loading="lazy">
+
   <div class="card" id="join">
     <h2 data-t="h2">Join the waitlist</h2>
     <p data-t="sub">Be the first to know when it's out, with an early-bird discount.</p>
@@ -86,7 +89,7 @@ a.go.buy { display: block; max-width: 420px; margin: 0 auto; text-align: center;
   <div class="card">
     <ul class="feat">
       <li><b data-t="f1">Every hit, found and named</b><span data-t="f1d">Kick, snare, clap, hats, toms, bongos, congas, shakers… detected by our own AI.</span></li>
-      <li><b data-t="f2">Your sounds, not a preset bank</b><span data-t="f2d">Drop your own samples on each pad. The groove stays, the sound is yours.</span></li>
+      <li><b data-t="f2">100 sounds included, or yours</b><span data-t="f2d">Each pad starts with a sound from our bank (or your Splice sounds). Drop your own samples on any pad: the groove stays, the sound is yours.</span></li>
       <li><b data-t="f3">In tune with your track</b><span data-t="f3d">It reads the note of each sound and can tune it to your key, one pad or all at once.</span></li>
       <li><b data-t="f4">It plays, or drag the MIDI</b><span data-t="f4d">Synced to your DAW. Or drag the pattern out as MIDI. Mac &amp; Windows, VST3 / AU.</span></li>
     </ul>
@@ -104,7 +107,7 @@ const T = { fr: {
   btn: 'Je réserve', ph: 'ton@email.com',
   legal: 'On t\'écrit seulement pour RATTLE!. Désinscription en un clic.',
   f1: 'Chaque coup, trouvé et nommé', f1d: 'Kick, caisse claire, clap, charleys, toms, bongos, congas, shakers… repérés par notre propre IA.',
-  f2: 'Tes sons, pas une banque toute faite', f2d: 'Pose tes propres samples sur chaque pad. Le groove reste, le son est à toi.',
+  f2: '100 sons offerts, ou les tiens', f2d: 'Chaque pad démarre avec un son de notre banque (ou de tes sons Splice). Pose tes propres samples sur n\'importe quel pad : le groove reste, le son est à toi.',
   f3: 'Accordé sur ton morceau', f3d: 'Il lit la note de chaque son et peut l\'accorder sur ta tonalité, un pad ou tous d\'un coup.',
   f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac et Windows, VST3 / AU.',
   more: 'En attendant, prends mes plugins gratuits :',
