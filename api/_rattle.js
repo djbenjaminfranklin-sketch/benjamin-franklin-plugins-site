@@ -74,7 +74,8 @@ async function sendDownloadEmail(email, name, sessionId) {
       Subject: 'Your RATTLE! download / Ton téléchargement RATTLE!',
       TextPart: `Thank you for buying RATTLE! Download it here: ${link}\nYour licence key (2 computers): ${key}\n\nMerci d'avoir acheté RATTLE! Télécharge-le ici : ${link}\nTa clé de licence (2 ordinateurs) : ${key}\n\nBenjamin Franklin`,
       HTMLPart: emailHtml(link, key),
-      CustomID: `rattle-${sessionId}`,
+      // Mailjet limite CustomID à 64 caractères (un identifiant de session Stripe en fait ~66)
+      CustomID: `rattle-${crypto.createHash('sha256').update(sessionId).digest('hex').slice(0, 32)}`,
     }] }),
   });
   if (!r.ok) throw new Error(`mailjet send ${r.status}: ${await r.text()}`);
