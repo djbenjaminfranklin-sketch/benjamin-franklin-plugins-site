@@ -34,7 +34,8 @@ module.exports = async (req, res) => {
   const okType = event.type === 'checkout.session.completed' || event.type === 'checkout.session.async_payment_succeeded';
   const s = event.data && event.data.object;
   // Paiement différé (virement…) : on attend l'événement « async_payment_succeeded »
-  if (!okType || !s || s.payment_status !== 'paid' || (s.metadata || {}).plugin !== 'rattle') {
+  // « no_payment_required » : commande offerte par un code à 100 % (essai ou cadeau), la clé est envoyée aussi
+  if (!okType || !s || !['paid', 'no_payment_required'].includes(s.payment_status) || (s.metadata || {}).plugin !== 'rattle') {
     return res.status(200).json({ ignored: true });
   }
   const email = (s.customer_details && s.customer_details.email) || s.customer_email;

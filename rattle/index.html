@@ -127,7 +127,7 @@ function apply(l) {
   try { localStorage.setItem('bf-lang', lang); } catch (e) {}
 }
 // Vente : passer SALE_OPEN à true le jour de la sortie (et réactiver le lien Stripe). ?preview=buy pour tester avant.
-const SALE_OPEN = false;
+const SALE_OPEN = true;
 let preview = false;
 try { preview = new URLSearchParams(location.search).get('preview') === 'buy'; } catch (e) {}
 if (SALE_OPEN || preview) {
