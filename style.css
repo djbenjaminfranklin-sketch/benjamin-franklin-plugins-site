@@ -272,3 +272,19 @@ footer p{margin:8px 0}
 .p-pump .p-title{font-size:clamp(64px,9vw,128px)}
 .p-pump .p-shot>img{width:100%}
 @media (max-width:860px){.p-pump{grid-template-columns:1fr;padding:64px 16px}}
+
+/* RATTLE! en tête de l'accueil */
+.rt{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center;padding:110px max(20px,6vw) 70px;background:radial-gradient(70% 80% at 25% 40%,rgba(255,45,116,.18),transparent),radial-gradient(60% 70% at 85% 70%,rgba(138,255,43,.12),transparent),#0c0a12;border-bottom:3px solid var(--pink)}
+.rt-new{display:inline-block;background:var(--green);color:var(--ink);font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin:0 0 14px;font-size:14px}
+.rt-logo{display:block;width:100%;max-width:480px;height:auto;margin:0 0 10px}
+.rt-h{font-size:clamp(28px,4vw,46px);line-height:1.08;margin:0 0 14px}
+.rt-h em{font-style:normal;color:var(--green)}
+.rt-lead{font-size:18px;line-height:1.55;color:#d9d3e2;margin:0 0 18px;max-width:560px}
+.rt-price{margin:0;font-size:22px;color:#a49db0}.rt-price b{font-size:52px;color:var(--green);margin-left:8px}
+.rt-offer{margin:2px 0 18px;font-weight:800;color:#fff}
+.rt-buy{display:inline-block;background:var(--pink);color:#fff;font-weight:900;font-size:19px;text-decoration:none;padding:17px 30px;border-radius:44px;box-shadow:5px 5px 0 #b3134d}
+.rt-small{color:#a49db0;font-size:14px;margin:14px 0 0}.rt-small a{color:#c77dff}
+.rt-media{display:grid;grid-template-columns:.62fr 1fr;gap:18px;align-items:center}
+.rt-media video{width:100%;border-radius:18px;background:#000;box-shadow:0 20px 60px #000a,0 0 40px rgba(255,45,116,.25)}
+.rt-shot{width:100%;height:auto;border-radius:14px;border:3px solid var(--pink);box-shadow:0 20px 60px #000a}
+@media (max-width:900px){.rt{grid-template-columns:1fr;gap:28px;padding:84px 16px 54px}.rt-media{grid-template-columns:1fr}.rt-media video{max-width:360px;margin:0 auto}}

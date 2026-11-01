@@ -1,5 +1,13 @@
 // Traductions françaises ; l'anglais est le texte d'origine de la page (langue par défaut)
 const FR = {
+  "rt.new": "Nouveau · disponible",
+  "rt.h": "Tu glisses un morceau. <em>Tu récupères sa batterie.</em>",
+  "rt.lead": "RATTLE! trouve le kick, la snare, le clap, le hi-hat… de n'importe quel morceau et te rend sa batterie, <b>prête à jouer</b> dans ton logiciel. Tu glisses ensuite le MIDI sur ta piste.",
+  "rt.price": "<s>39 €</s> <b>24,90 €</b>",
+  "rt.offer": "Offre pour les 50 premiers exclusivement",
+  "rt.buy": "Je prends RATTLE! · 24,90 €",
+  "rt.compat": "Mac et Windows · VST3 / AU · un seul paiement, à toi pour toujours",
+  "rt.more": "En savoir plus sur RATTLE!",
   "nav.plugins": "Les plugins",
   "nav.bio": "Le gars",
   "nav.install": "Installer",
