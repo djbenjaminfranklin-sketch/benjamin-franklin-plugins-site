@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RATTLE! by Benjamin Franklin: the AI drum machine</title>
-<meta name="description" content="Capture the groove of your favorite track. RATTLE! finds every drum hit in any song, names it, and plays it with your own sounds. Coming soon: €39, launch price €24.90.">
+<meta name="description" content="Capture the groove of your favorite track. RATTLE! finds every drum hit in any song, names it, and plays it with your own sounds. Out now: €39, €24.90 for the first 50 only.">
 <meta property="og:title" content="RATTLE! – the AI drum machine">
-<meta property="og:description" content="Capture the groove of your favorite track. Coming soon: €39, launch price €24.90. Join the waitlist.">
+<meta property="og:description" content="Capture the groove of your favorite track. Out now: €39, €24.90 for the first 50 only.">
 <meta property="og:image" content="https://benjaminfranklinmusic.com/rattle/poster.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0c0a12">
@@ -109,7 +109,7 @@ const T = { fr: {
   f4: 'Il joue, ou glisse le MIDI', f4d: 'Synchronisé avec ton DAW. Ou glisse le rythme en MIDI. Mac, VST3 / AU (Windows bientôt).',
   more: 'En attendant, prends mes plugins gratuits :',
   bh2: 'Prends RATTLE!', bsub: 'Un seul paiement, à toi pour toujours. Mac, VST3 / AU (Windows bientôt).',
-  bbtn: 'Acheter · <s>39 €</s> 24,90 €', blegal: 'Paiement sécurisé par Stripe. Un code de lancement ? Entre-le au paiement.', buyprice: 'DISPONIBLE · <s>39 €</s> 24,90 €',
+  bbtn: 'Acheter · <s>39 €</s> 24,90 €', blegal: 'Paiement sécurisé par Stripe. Un code de lancement ? Entre-le au paiement.', buyprice: 'DISPONIBLE · <s>39 €</s> 24,90 €<br><small>Offre pour les 50 premiers exclusivement</small>',
   ok: 'C\'est réservé ! On te prévient à la sortie.', bad: 'Cet e-mail ne semble pas valide.', fail: 'Petit souci, réessaie dans un instant.'
 }, en: { ok: 'You\'re in! We\'ll let you know when it\'s out.', bad: 'That email doesn\'t look right.', fail: 'Something went wrong, try again in a moment.' } };
 const EN = {};
@@ -134,7 +134,7 @@ if (SALE_OPEN || preview) {
   document.getElementById('buy').hidden = false;
   document.getElementById('join').hidden = true;
   const p = document.querySelector('[data-t=price]');
-  p.dataset.t = 'buyprice'; EN.buyprice = 'AVAILABLE NOW · <s>€39</s> €24.90';
+  p.dataset.t = 'buyprice'; EN.buyprice = 'AVAILABLE NOW · <s>€39</s> €24.90<br><small>Offer exclusively for the first 50</small>';
 }
 apply(lang);
 document.getElementById('lang').onclick = () => apply(lang === 'fr' ? 'en' : 'fr');
